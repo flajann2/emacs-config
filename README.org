@@ -1,0 +1,19 @@
+* emacs-config by Fred Mitchell                                   :TOC_5_gh:
+  - [[#symopsis][Symopsis]]
+  - [[#author][Author]]
+  - [[#version][Version]]
+  - [[#documentation][Documentation]]
+  - [[#schlau-compile-documentation][Schlau Compile Documentation]]
+
+** Symopsis
+   This is a extensive Emacs configuration system that has been in the making for 
+   about 15 years. It emcompasses many different programming languages, and IDE-like
+   interface, and OrgMode, Evil mode, etc.
+** Author
+   Fred Mitchell
+** Version
+   3.0.0.1
+** Documentation
+
+** Schlau Compile Documentation
+

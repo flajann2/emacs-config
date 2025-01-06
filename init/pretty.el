@@ -1,0 +1,21 @@
+;; we do some awesomeness here with symbol substitution!
+(global-prettify-symbols-mode +1)
+(defun configure-prettify-symbols-alist ()
+  "Set prettify symbols alist."
+  (setq prettify-symbols-alist '(("->" . ?→)
+                                 ("lambda" . ?λ)
+                                 ("->>" . ?↠)
+                                 ("=>" . ?⇒)
+                                 ("map" . ?↦)
+                                 ("/=" . ?≠)
+                                 ("!=" . ?≠)
+                                 ("==" . ?≡)
+                                 ("<=" . ?≤)
+                                 (">=" . ?≥)
+                                 ("<=<" . ?↢)
+                                 (">=>" . ?↣)
+                                 ("&&" . ?∧)
+                                 ("||" . ?∨)
+                                 ("not" . ?¬))))
+
+(provide 'pretty)

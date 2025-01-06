@@ -1,0 +1,157 @@
+* schlau-compile                                                   :TOC_5_gh:
+  - [[#synopsis][Synopsis]]
+  - [[#author][Author]]
+  - [[#version][Version]]
+  - [[#acknowledgements][Acknowledgements]]
+  - [[#lisense][Lisense]]
+  - [[#documentation][Documentation]]
+    - [[#configuring-your-own-macros-advanced-setup][Configuring your own macros, advanced setup]]
+    - [[#string---macos][String %- Macos]]
+    - [[#simple-setup-example-for-your-emacs-file][Simple setup example for your .emacs file]]
+  - [[#recent-changes][Recent changes]]
+
+** Synopsis
+   A utility to allow you to configure
+   compilation for any git project.
+
+** Author
+   Fred Mitchell
+
+** Version   
+   1.0.0
+
+** Acknowledgements
+   Forked from the original "Smart Compile" by Seiji Zenitani 
+   at https://github.com/zenitani/elisp. To avoid namespace
+   collisions, all symbols have been renamed. So, you can use
+   both schlau-compile and smart-compile at the same time, 
+   but then why would you want to? We've added features and changed
+   the workflow that goes beyond  smart-compile.
+
+   Contributers to the orginal smart-compile:
+   Seiji Zenitani, Sakito Hisakura, and Greg Pfell
+
+** Lisense
+   Fred Mitchell enhancements and modifications are covered by the MIT license.
+   The original code is covered by GPLv3.
+
+   I am no lawyer, but I do all of my OpenSource code under the MIT license without
+   exception.
+
+** Documentation
+   schlau-compile -- the "schlau" part of the name is the German word for "smart".
+   
+   schlau-compile's best new featue is that it will look for the root of your
+   git project to reference what needs to be compiled underneath. We have
+   added macros that allows you to leverage that functionality. 
+
+   So basically, the currently active buffer is referenced by its 
+   major mode to find the compile string to run. Please see the provided 
+   example below.
+
+*** Configuring your own macros, advanced setup
+    I provide an example, and it is actually the same one
+    I use on a daily basis.
+
+    #+begin_src elisp
+(require 'compile)
+(require 'schlau-compile)
+
+(defconst cppninja "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
+(defconst cppmake  "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && make")
+(defconst rustmake "RUST_BACKTRACE=1 ~/.cargo/bin/cargo build && ~/.cargo/bin/cargo test -- --nocapture")
+(defconst rubymake "rake build")
+(defconst gomake  "export GOPATH=/development/go ; go install ./... && go test -v && go vet")
+(defconst hackage "cd %G && stack build --allow-different-user && stack test")
+
+(setq schlau-compile-alist
+      (append
+       ;; build Haskell
+       (eval `'((haskell-mode  . ,hackage)))
+       (eval `'((yaml-mode     . ,hackage)))
+
+       ;; compile Go
+       (eval `'((go-mode . ,gomake)))
+
+       ;; compile C++
+       (eval `'((c++-mode   . ,cppninja)))
+       (eval `'((cmake-mode . ,cppninja)))
+
+       ;; compile Rust
+       (eval `'((rust-mode  . ,rustmake)))
+       (eval `'((toml-mode  . ,rustmake)))
+
+       ;; compile rubygem
+       (eval `'((ruby-mode  . ,rubymake)))
+       ))
+
+(global-set-key [f5] 'schlau-compile-compile)
+(global-set-key [f6] 'schlau-compile-query)
+(global-set-key [C-f6] 'kill-compilation)
+    #+end_src
+
+    You will note that I have configured a few languages; C++ (using CMake,
+    both make and ninja), Haskell, Rust, Ruby, and Go.
+
+    Note that the actual compile macros are defined as defconsts,
+    and that the actual schlau-compile-alist references defconst. We
+    do it this way so that you can target multiple modes for compilation.
+    Like, for example, C++ files and the CMake file that builds them,
+    and in the case for Rust, the Rust source code and the Cargo.toml
+    file that builds them. This is in keeping with the DRY principle.
+
+    Hotkeys:
+    + F5 will compile using either the default string as determined
+      from the alist, or from your modified compile string you made from F6.
+    + F6 provide you with the actual resolved macro compile string, first,
+      allowing you to make temporary modifications to it before you compile. Subsequently,
+      you can hit F5 to run the the modified compile string.
+      
+      Note that your F6 modifications will only persist during the life of the
+      emacs session and will not be permanent. Make any permanent modifications
+      to the defconst macros in your configuration.
+    
+*** String %- Macos
+     Alist of filename patterns vs corresponding format control strings.
+     Each element looks like (REGEXP . STRING) or (MAJOR-MODE . STRING).
+     Visiting a file whose name matches REGEXP specifies STRING as the
+     format control string.  Instead of REGEXP, MAJOR-MODE can also be used.
+     The compilation command will be generated from STRING.
+     The following %-sequences will be replaced by:
+
+     | Macro | Description                             | Example Results             |
+     |-------+-----------------------------------------+-----------------------------|
+     | %F    | absolute pathname                       | ~/your_project/src/main.cpp |
+     | %f    | file name without directory             | main.cpp                    |
+     | %n    | file name without extension             | main                        |
+     | %e    | extension of file name                  | cpp                         |
+     | %G    | root path of git project                | ~/your_project/             |
+     | %o    | value of `schlau-compile-option-string' | "user-defined"              |
+
+*** Simple setup example for your .emacs file
+     Here we show a custom example of doing a cmake c++ project compile,
+     and one for Rust as well. Note the use of %G in the case of cmake. Note
+     as well that this is a simple example that does not use defconst.
+
+     #+begin_src lisp
+     (setq schlau-compile-alist
+      (append
+       ;; compile C++
+       '((c++-mode . "cd %G && cmake . && make -k -j8"))
+
+       ;; compile Rust
+       '((rust-mode . "RUST_BACKTRACE=1 cargo build"))
+       ))
+
+     (global-set-key [F5] 'schlau-compile-compile)
+     (global-set-key [f6] 'schlau-compile-query)
+     (global-set-key [C-F6] 'kill-compilation)
+     #+end_src
+
+     And you will also note the last 3 lines setting up a key mapping,
+     which you are of course free to change to your own liking.
+
+** Recent changes
+   I changed the way F5 and F6 keys work. You will always get a meaningful
+   compile string, and F6 is now used to modify the string before the compilation,
+   wheras before F5 did that (and F6 did not default to anything meaningful.)

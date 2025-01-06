@@ -1,0 +1,15 @@
+MIT License
+
+Note well: This code is derived from a GPLv3 licensed code,
+and only my modifications are MIT.
+
+I am not a lawyer(!) and I don't care to get into the fine
+hair-splitting details about whether my work here is MIT or GPLv3.
+I am releasing this the way I release most of my code, as
+MIT. If the authors of smart-compile ask, I will revert schlau-compile
+to GPLv3.
+
+I hate that we have all these open-source license options, and it has
+created many difficulties with how code is packaged, etc.
+
+So, you are free to make your own determination about this.

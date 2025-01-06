@@ -1,0 +1,11 @@
+;; ruby macros for pry
+
+(defun ruby-pry-debugging ()
+  (fset 'rpry [kp-home return up tab ?b ?i ?n ?d ?i ?n ?g ?. ?p ?r ?y C-left C-left ?r ?e ?q ?u ?i ?r ?e ?  ?\' ?\' ?\; ?  left left left ?p ?r ?y kp-end ?  ?# ?D ?E ?B ?U ?G ?G ?I ?N ?G tab kp-home])
+  (fset 'runpry [?\C-s ?# ?D ?E ?B ?U ?G ?G ?I ?N ?G kp-home ?\C-k ?\C-k])
+  (local-set-key (kbd "C-c C-a") 'rpry)
+  (local-set-key (kbd "C-c a") 'runpry)
+  )
+(add-hook 'ruby-mode-hook 'ruby-pry-debugging)
+
+(provide 'ruby-macros)
