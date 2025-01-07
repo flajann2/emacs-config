@@ -27,4 +27,14 @@
 (add-to-list 'load-path "PATH CONTAINING golint.el" t)
 (require 'golint)
 
-(provide 'ext-go)
+(provide 'go-ext)
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,8 @@
 ;; TODO: Remove this once release is accepted.
-(add-to-list 'load-path "/development/emacs_proj/elisp/")
+(add-to-list 'load-path "~/.config/emacs-config/schlau-compile/")
 
 (require 'compile)
 (require 'schlau-compile)
-
-;; cmake -B build -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -G Ninja && cmake --build build && ./build/gaze
 
 (defconst cppclang "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
 ;;; (defconst cppninja "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
@@ -69,4 +67,4 @@
 ;; Makes sense to stick this here. :D
 (setq compilation-scroll-output t)
 
-(provide 'ext-schlau)
+(provide 'schlau-ext)

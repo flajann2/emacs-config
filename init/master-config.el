@@ -37,7 +37,7 @@
       (require 'toc-ext)
       (require 'compilation-ext)
       ;; (require 'projectile-ext)
-      ;; (require 'ext-go)
+      ;; (require 'go-ext)
       ;; (require 'whitespace-cleanup)
       ;; (require 'ruby-electric)
       ;; (require 'spaces-ext)
@@ -48,13 +48,13 @@
       (require 'cppcheck-ext)
       (require 'clangtidy-ext)
       (require 'idle-hilight-ext) ;; idle hightlightuing
-      (require 'ext-schlau)
+      (require 'schlau-ext)
       ;; (require 'tide-ext)
       ;; (require 'fish-setup)
       (require 'pretty)
       (require 'fish-ext)
       (require 'workgroups-ext)
-      (require 'gptel-ext)
+      ;; (require 'gptel-ext)
       (require 'window-layout-ext)
       ;; (require magit-ext)
       (require 'color-focus-ext)
@@ -64,8 +64,4 @@
   )
 
 (provide 'master-config)
-
-
-
-
 
