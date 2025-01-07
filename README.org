@@ -1,19 +1,64 @@
 * emacs-config by Fred Mitchell                                   :TOC_5_gh:
-  - [[#symopsis][Symopsis]]
   - [[#author][Author]]
   - [[#version][Version]]
+  - [[#symopsis][Symopsis]]
   - [[#documentation][Documentation]]
+    - [[#organization][Organization]]
+    - [[#emacs-package-dependecies][Emacs Package Dependecies]]
   - [[#schlau-compile-documentation][Schlau Compile Documentation]]
 
-** Symopsis
-   This is a extensive Emacs configuration system that has been in the making for 
-   about 15 years. It emcompasses many different programming languages, and IDE-like
-   interface, and OrgMode, Evil mode, etc.
 ** Author
-   Fred Mitchell
+   Fred Mitchell, Atomlogik
 ** Version
    3.0.0.1
+** Symopsis
+   This is an extensive Emacs configuration system that
+   has been in development for about 15 years. It
+   encompasses many different programming languages,
+   features an IDE-like interface, and includes Org
+   mode, Evil mode, and more.
+
+   The configuration files have been split into
+   individual task-based init files to facilitate
+   easier management of your settings. Additionally,
+   the master config file allows you to selectively
+   require the task-based init files simply by
+   commenting them out if they are no longer needed.
+
+   Furthermore, the master config can distinguish
+   between Emacs being run in the command line versus
+   as a GUI, as many configurations may only make sense
+   in a GUI context.
+
 ** Documentation
+*** Organization
+    The root of emacs-config contains the .emacs config that
+    emacs normally looks for. It is strongly recommended that you
+    do a soft link to this file in your home directory. 
+
+    You may want to merge your current .emacs file with this one
+    to preserve your present settings.
+*** Emacs Package Dependecies
+    The current snapshot of the dependecies can be found at:
+
+    [[file:manifest/emacs-package-manifest.el][/manifest/emacs-package-manifest.el]]
+    
+    Some of these dependecies may be out-of-date or no longer used.
+    I will clean then up later.
 
 ** Schlau Compile Documentation
+   [[file:schlau-compile/README.org::*schlau-compile][Schlau Compile]] is a utility to allow you to configure
+   compilation for nearly any git project at the press of a
+   button.
 
+   The documentation for Schlau Compile can be found at:
+
+   [[file:schlau-compile/README.org::*schlau-compile][schlau-compile]]
+
+   Schlau Compile really should be in the Melpa, but there
+   were some issues with me putting it there since this is a
+   derivative work of Smart Compile. The functionality of 
+   Schlau Compile has diverged greately and the namespace 
+   changes that was needed to be made did not make it a good
+   canidate for merging. So for all intents and purposes,
+   this is a different project that stands alone.
