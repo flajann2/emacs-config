@@ -1,7 +1,7 @@
 * emacs-config by Fred Mitchell                                   :TOC_5_gh:
   - [[#author][Author]]
   - [[#version][Version]]
-  - [[#symopsis][Symopsis]]
+  - [[#synopsis][Synopsis]]
   - [[#documentation][Documentation]]
     - [[#organization][Organization]]
     - [[#emacs-package-dependecies][Emacs Package Dependecies]]
@@ -11,7 +11,7 @@
    Fred Mitchell, Atomlogik
 ** Version
    3.0.0.1
-** Symopsis
+** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
    encompasses many different programming languages,
