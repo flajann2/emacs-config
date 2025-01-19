@@ -62,9 +62,6 @@
 (add-hook 'haskell-mode-hook 'company-mode)
 (add-hook 'haskell-interactive-mode-hook 'company-mode)
 
-;; TODO move this to a better place
-;; (global-display-line-numbers-mode 1)
-
 ;; comment evaluations -- >>>
 (use-package haskell-mode
   :ensure t

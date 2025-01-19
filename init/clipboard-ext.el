@@ -22,6 +22,23 @@
 (global-set-key (kbd "C-p") 'my-wayland-paste)
 (global-set-key (kbd "C-y") 'my-wayland-copy)
 
+;;; TODO: This supposedly now works on emacs-wayland. https://www.reddit.com/r/emacs/comments/1hrv53z/comment/m7miu4z/?%24deep_link=true&correlation_id=3c444dca-0f43-40e7-9e81-4583a2d9369e&ref=email_comment_reply&ref_campaign=email_comment_reply&ref_source=email
+;;; ;; Better support for clipboard and primary selection
+;;; (setq x-select-request-type
+;;;     '(UTF8_STRING COMPOUND_TEXT STRING text/plain\;charset=utf-8))
+;;; ;; Enable clipboard and primary selection
+;;; (setq select-enable-clipboard t
+;;;     select-enable-primary t
+;;;     x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+;;; (defun paste-from-wayland-clipboard ()
+;;;     "Paste using wl-paste."
+;;;     (interactive)
+;;;     (let ((text (shell-command-to-string "wl-paste -n")))
+;;;     (if (not (string-empty-p text))
+;;;     (insert text)
+;;;     (message "Clipboard is empty"))))
+;;; (global-set-key (kbd "C-c p") 'paste-from-wayland-clipboard)
+
 ;;; TODO: Try this on emacs-wayland
 ;;;   ;; credit: yorickvP on Github
 ;;;   (setq wl-copy-process nil)
