@@ -1,9 +1,33 @@
+;; C++ Debuigging setup and integration with gdb
+
 (require 'gud)
+
+; moved from init-ext.el
+
+;; CEDET and gdb integration
+(global-ede-mode 1)
+(require 'semantic/sb)
+(semantic-mode 1)
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+
+ ;; auto rescan to fix ruby problem
+ imenu-auto-rescan t
+ )
 
 ; GDB layout
 (defadvice gdb-setup-windows (after activate)
   (gdb-setup-my-windows)
 )
+
+;; Hilight Doxygen comments
+;; (highlight-doxygen-global-mode 1)
+
+
 
 (defun gdb-setup-my-windows ()
   (set-window-dedicated-p (selected-window) nil)

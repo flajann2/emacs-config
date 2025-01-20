@@ -1,7 +1,3 @@
-;; Icicles Setup
-(require 'icicles)
-(icy-mode 1)
-
 ;; LaTeX (alles)
 ;; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)

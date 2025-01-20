@@ -2,6 +2,7 @@
 
 ;; init graphical or command-line
 (require 'init-ext)
+(require 'elpaca-ext) ;; should be early to take out package.el
 (require 'global-keys)
 (require 'miscellaneous)
 ;; (require 'ruby-macros)

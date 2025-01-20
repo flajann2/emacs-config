@@ -20,8 +20,9 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; Who you gonna blame
-(require 'git-blame)
-(global-set-key [C-S-mouse-1] 'git-blame-mode)
+(use-package blamer
+  :ensure t
+  :config (global-blamer-mode 1))
 
 ;; uppercase and lowercase
 (global-set-key [C-S-mouse-9] 'upcase-word)
@@ -55,8 +56,7 @@
 (menu-bar-mode -99)
 
 ;; Blank Mode
-(require 'blank-mode)
-(global-set-key [C-mouse-7] 'blank-mode)
+(setq-default whitespace-style '(face spaces empty tabs newline trailing))
 
 ;; Spell checking entire buffer
 (global-set-key [f4] 'ispell-buffer)

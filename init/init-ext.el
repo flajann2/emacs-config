@@ -1,5 +1,9 @@
 ;; due to the way we like to layout our screen, comments in OrgMode, etc. should be
 ;; thusly. Use meta-q to format.
+;; TODO: This file should be refactored into smaller init files, named
+;; TODO: "init-nn-xxx.el", nn representing the sequence in which they are to
+;; TODO: be included.
+
 (setq-default fill-column 55)
 
 ;; No pesky backup files
@@ -12,6 +16,7 @@
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+
 ;; (package-initialize)
 ;; (push 'company-robe company-backends)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
@@ -44,10 +49,8 @@
 
 ;; Load my delightful themes, bitches!1!
 (if (display-graphic-p)
-    (load-theme 'hipster t)
+    (load-theme 'zenburn t)
 )
-;; (load-theme 'alveric t)
-
 
 ;; Auto modes
 (setq auto-mode-alist
@@ -80,20 +83,6 @@
          )
        auto-mode-alist))
 
-;; CEDET and gdb integration
-(global-ede-mode 1)
-(require 'semantic/sb)
-(semantic-mode 1)
-(setq
- ;; use gdb-many-windows by default
- gdb-many-windows t
-
- ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
-
- ;; auto rescan to fix ruby problem
- imenu-auto-rescan t
- )
 
 ;; diff-h1
 (global-diff-hl-mode)
@@ -125,13 +114,11 @@
 (setq auto-revert-verbose nil)
 
 ;; Goodbye annoying toolbar
-(tool-bar-pop-up-mode 1)
+(tool-bar-mode 1)
 
 ;; grab the shell's path
 ;; (exec-path-from-shell-initialize)
 
-;; Hilight Doxygen comments
-;; (highlight-doxygen-global-mode 1)
 
 ;; bracketed paste
 (require 'bracketed-paste)
