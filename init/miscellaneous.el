@@ -20,8 +20,8 @@
           (lambda () (setq forward-sexp-function nil)))
 
 ;; Ansible
-(require 'company-ansible)
-(add-to-list 'company-backends 'company-ansible)
+;; (require 'company-ansible)
+;; (add-to-list 'company-backends 'company-ansible)
 
 ;; dir locals
 (setq enable-dir-locals t)
@@ -63,13 +63,13 @@
 (setq tooltip-hide-delay 500.0) ;; seconds
 (setq tooltip-delay 2.0)
 
-;; Company Mode Configuration for completions
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0.2)
-  (setq company-minimum-prefix-length 1)
-  (global-company-mode 1))
+;; Company Mode Configuration for completions FIXME
+;;(Use-package company
+;;  :ensure t
+;;  :config
+;;  (setq company-idle-delay 0.2)
+;;  (setq company-minimum-prefix-length 1)
+;;  (global-company-mode 1))
 
 (provide 'miscellaneous)
 ;;; miscellaneous.el ends here

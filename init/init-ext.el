@@ -2,6 +2,14 @@
 ;; thusly. Use meta-q to format.
 (setq-default fill-column 55)
 
+;; buffer positions FIXME
+(setq-default mode-line-format
+              (list
+               " "
+               '(:eval (format "Char Position: %d" (point)))
+               "  " ;; Add spacing
+               ))
+
 ;; No pesky backup files
 (setq make-backup-files nil)
 
@@ -38,9 +46,9 @@
 (require 'sublimity-scroll)
 (require 'sublimity-map)
 
-;; Bash
-(require 'bash-completion)
-(bash-completion-setup)
+;; Bash FIXME
+;;(require 'bash-completion)
+;;(bash-completion-setup)
 
 ;; Load my delightful themes, bitches!1!
 (if (display-graphic-p)

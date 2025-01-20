@@ -11,21 +11,21 @@
 
 
 
-;; Auto-complete c++ headers
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
-(require 'auto-complete-c-headers)
-(add-to-list 'ac-sources 'ac-source-c-headers)
+;; Auto-complete c++ headers FIXME
+;;(require 'auto-complete)
+;;(require 'auto-complete-config)
+;;(ac-config-default)
+;;(require 'auto-complete-c-headers)
+;;(add-to-list 'ac-sources 'ac-source-c-headers)
 
 ;; auto-dim
 (add-hook 'after-init-hook (lambda ()
                              (when (fboundp 'auto-dim-other-buffers-mode)
                                (auto-dim-other-buffers-mode t))))
 
-;; Yasnippit
+;; Yasnippit FIXME
 ;;(require 'yasnippet)
-(yas-global-mode 1)
+;;(yas-global-mode 1)
 
 ;; Irony mode
 (add-hook 'c++-mode-hook 'irony-mode)
@@ -41,8 +41,9 @@
 (use-package company
   :hook (after-init . global-company-mode))
 
-(use-package flycheck
-  :init (global-flycheck-mode))
+;; FIXME
+;;(use-package flycheck
+;;  :init (global-flycheck-mode))
 
 (setq lsp-idle-delay 0.1
       lsp-enable-symbol-highlighting t
