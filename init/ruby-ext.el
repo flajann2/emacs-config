@@ -8,6 +8,7 @@
 ;; (define-key ruby-mode-map (kbd "C-c r d") 'my-run-remote-pry) ; (or whatever keybinding)
 
 ;; Ruby IDE
+;; TODO: the next line smells up to the high heavens
 (add-to-list 'load-path "~/.emacs.d/rinari")
 (require 'rinari)
 (global-rinari-mode)

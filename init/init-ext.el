@@ -3,12 +3,12 @@
 (setq-default fill-column 55)
 
 ;; buffer positions FIXME
-(setq-default mode-line-format
-              (list
-               " "
-               '(:eval (format "Char Position: %d" (point)))
-               "  " ;; Add spacing
-               ))
+;;(setq-default mode-line-format
+;;              (list
+;;               " "
+;;               '(:eval (format "Char Position: %d" (point)))
+;;               "  " ;; Add spacing
+;;               ))
 
 ;; No pesky backup files
 (setq make-backup-files nil)
