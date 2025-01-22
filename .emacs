@@ -9,8 +9,7 @@
  '(column-number-mode t)
  '(custom-enabled-themes '(hipster))
  '(custom-safe-themes
-   '("1c50040ec3b3480b1fec3a0e912cac1eb011c27dd16d087d61e72054685de345" "545a4a02e2d043b7c81368723fcd7f4e271778cc3ca4a1498820a96948391ea3" "c2e3ed32bf334d893cb5c67616ec8b967eb3b00a93db810f97d93f6e22118c0b" default))
-;;;;  '(display-line-numbers-type nil)
+   '("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" "3d21eda97ce916fda054b0d2e1381e3fb3118cee79749e4b282b55fc461fb13e" "1c50040ec3b3480b1fec3a0e912cac1eb011c27dd16d087d61e72054685de345" "545a4a02e2d043b7c81368723fcd7f4e271778cc3ca4a1498820a96948391ea3" "c2e3ed32bf334d893cb5c67616ec8b967eb3b00a93db810f97d93f6e22118c0b" default))
  '(flymake-cppcheck-enable "all")
  '(global-display-line-numbers-mode t)
  '(hl-highlight-background-colors
@@ -30,7 +29,6 @@
  '(save-place-mode t)
  '(scroll-bar-mode nil)
  '(size-indication-mode t)
- '(speedbar-show-unknown-files t)
  '(tab-width 2)
  '(tool-bar-mode nil)
  '(truncate-lines t)

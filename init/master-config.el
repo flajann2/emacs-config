@@ -63,7 +63,7 @@
       ;; (require-m magit-ext)
       (require-m 'color-focus-ext)
       (require-m 'clipboard-ext)
-      (require-m 'ellama-ext)
+      ;; (require-m 'ellama-ext)
       (message "*** LOADING INIT CONFIGS COMPLETE ***"))
   )
 

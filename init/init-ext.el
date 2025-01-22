@@ -50,13 +50,6 @@
 ;;(require 'bash-completion)
 ;;(bash-completion-setup)
 
-;; Load my delightful themes, bitches!1!
-(if (display-graphic-p)
-    (load-theme 'hipster t)
-)
-;; (load-theme 'alveric t)
-
-
 ;; Auto modes
 (setq auto-mode-alist
       (append
