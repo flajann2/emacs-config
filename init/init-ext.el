@@ -146,7 +146,7 @@
 (global-launch-mode +1)
 
 ;; Pretty Org
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;; (require 'org-superstar)
+;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 (provide 'init-ext)
