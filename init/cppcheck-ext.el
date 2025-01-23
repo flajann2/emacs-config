@@ -1,6 +1,6 @@
 ;; cppcheck setup
 
-(use-package flymake-cppcheck
+(use-package flymake-cppcheck ;; TODO: flymake-cppcheck no longer available
   :ensure t
   :config
   (add-hook 'c-mode-hook 'flymake-cppcheck-load)

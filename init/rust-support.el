@@ -1,9 +1,9 @@
 ;; Rust support
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-(require 'flymake-rust)
+(use-package flymake-rust :ensure t)
 (add-hook 'rust-mode-hook 'flymake-rust-load)
 (setq flymake-rust-use-cargo 1)
-(require 'multi-compile)
+(use-package multi-compile :ensure t)
 (setq multi-compile-alist '(
                             (rust-mode . (("rust-debug" . "cargo run")
                                           ("rust-release" . "cargo run --release")

@@ -13,10 +13,10 @@
                     (define-key c-mode-base-map (kbd "M-o") 'cff-find-other-file))))
 
 ;; Auto-complete c++ headers FIXME
-;;(require 'auto-complete)
-;;(require 'auto-complete-config)
+;;(use-package auto-complete :ensure t)
+;;(use-package auto-complete-config :ensure t)
 ;;(ac-config-default)
-;;(require 'auto-complete-c-headers)
+;;(use-package auto-complete-c-headers :ensure t)
 ;;(add-to-list 'ac-sources 'ac-source-c-headers)
 
 ;; auto-dim
@@ -25,7 +25,7 @@
                                (auto-dim-other-buffers-mode t))))
 
 ;; Yasnippit FIXME
-;;(require 'yasnippet)
+;;(use-package yasnippet :ensure t)
 ;;(yas-global-mode 1)
 
 ;; Irony mode

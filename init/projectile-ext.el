@@ -2,7 +2,7 @@
 
 ;; FIXME -- this is buggy on laptop!
 
-;;(require 'org-projectile)
+;;(use-package org-projectile :ensure t)
 ;;(setq org-projectile-projects-file
 ;;      "/your/path/to/an/org/file/for/storing/project/todos.org")
 ;;(push (org-projectile-project-todo-entry) org-capture-templates)

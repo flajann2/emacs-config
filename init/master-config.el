@@ -29,7 +29,7 @@
       (require-m 'line-numbers)
       (require-m 'highlighter)
       (require-m 'evil-company)
-      (require-m 'header-cpp)
+      ;; (require-m 'header-cpp)
       (require-m 'org-ext)
       (require-m 'org-pub)
       (require-m 'org-todo)
@@ -49,7 +49,7 @@
       (require-m 'folding-ext)
       ;; (require-m 'cmake-omnibus)
       ;; (require-m 'multiple-cursors)
-      (require-m 'cppcheck-ext)
+      ;; (require-m 'cppcheck-ext)
       (require-m 'clangtidy-ext)
       (require-m 'idle-hilight-ext) ;; idle hightlighting
       (require-m 'schlau-ext)
@@ -63,7 +63,7 @@
       (require-m 'magit-ext)
       (require-m 'color-focus-ext)
       (require-m 'clipboard-ext)
-      (require-m 'ellama-ext)
+      ;; (require-m 'ellama-ext) ;; not loading properly FIXME
       (message "*** LOADING INIT CONFIGS COMPLETE ***"))
   )
 

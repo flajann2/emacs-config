@@ -1,5 +1,5 @@
 ;; Rubocop, the Ruby nag
-(require 'rubocop)
+(use-package rubocop :ensure t)
 (add-hook 'ruby-mode-hook #'rubocop-mode)
 
 (provide 'rubonag)

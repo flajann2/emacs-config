@@ -1,7 +1,7 @@
 ;; all good stuff Java.
 
 ;; lsp Java IDE
-(require 'lsp-javacomp)
+(use-package lsp-javacomp :ensure t)
 (add-hook 'java-mode-hook #'lsp-javacomp-enable)
 
 ;; JDEE

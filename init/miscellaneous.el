@@ -27,7 +27,7 @@
           (lambda () (setq forward-sexp-function nil)))
 
 ;; Ansible
-;; (require 'company-ansible)
+;; (use-package company-ansible :ensure t)
 ;; (add-to-list 'company-backends 'company-ansible)
 
 ;; dir locals
@@ -54,11 +54,6 @@
   "Recompile all packages."
   (interactive)
   (byte-recompile-directory "~/.emacs.d/elpa" 0 t))
-
-;; Orgmode TOC enable
-(if (require 'toc-org nil t)
-    (add-hook 'org-mode-hook 'toc-org-enable)
-  (warn "toc-org not found"))
 
 ;; iedit multiple regions substitute (c-;)
 (use-package iedit :ensure t)

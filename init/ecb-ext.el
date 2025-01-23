@@ -1,5 +1,5 @@
 ;; Set up ECB
-(require 'ecb)
+(use-package ecb :ensure t)
 
 ;; Launch ecb only if in graphic mode!!!!
 (setq ecb-tip-of-the-day nil)

@@ -25,7 +25,7 @@
 
 ;; flycheck clang
 (with-eval-after-load 'flycheck
-   (require 'flycheck-clang-analyzer)
+   (use-package flycheck-clang-analyzer :ensure t)
    (flycheck-clang-analyzer-setup))
 
 ;; flycheck clang-tidy
@@ -34,7 +34,7 @@
 
 ;; auto complete c++
 (ac-config-default)
-(require 'auto-complete-clang-async)
+(use-package auto-complete-clang-async :ensure t)
 
 (defun ac-cc-mode-setup ()
   (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")

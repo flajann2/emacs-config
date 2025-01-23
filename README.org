@@ -10,7 +10,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.0.1
+   3.0.0.2
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -31,6 +31,13 @@
    in a GUI context.
 
 ** Documentation
+*** Installation notes
+    + Always use the tagged version for the "stable" versions.
+      The latest can be pulled from master, but no gurantees.
+    + 3.0.0.2 -- An overhaul is in progress to make everything use use-package.
+      You will no longer have to install dependencies by hand. Some functionality
+      is currently broken, like updating the Org TOC. It will
+      be addressed eventually.
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you

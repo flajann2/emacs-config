@@ -14,7 +14,7 @@
 ;; 
 ;; - For Vanilla Emacs (After install magit, magit-lfs):
 ;; 
-;;   (require 'magit-lfs)
+;;   (use-package magit-lfs :ensure t)
 ;; 
 ;; - For Emacs with `use-package' (After load magit, dash):
 ;; 

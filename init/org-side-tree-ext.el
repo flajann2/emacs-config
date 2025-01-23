@@ -17,7 +17,7 @@
 ;; 
 ;; To install, place file on your load-path
 ;; and include this in your init file:
-;; (require 'org-side-tree)
+;; (use-package org-side-tree :ensure t)
 ;; 
 ;; To use, Open an Org file and call M-x `org-side-tree'.
 ;; 

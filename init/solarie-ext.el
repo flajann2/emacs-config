@@ -1,4 +1,4 @@
-(require 'solaire-mode)
+(use-package solaire-mode :ensure t)
 
 ;;Brighten buffers that represent real files:
 (add-hook 'after-change-major-mode-hook #'turn-on-solaire-mode)

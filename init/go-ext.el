@@ -1,31 +1,31 @@
 ;; go setup
 
-(require 'go-projectile)
+(use-package go-projectile :ensure t)
 
 ;; flycheck
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 
 ;; go-eldoc
-(require 'go-eldoc)
+(use-package go-eldoc :ensure t)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
 ;; go-dlv
-(require 'go-dlv)
+(use-package go-dlv :ensure t)
 
 ;; completion
-(require 'go-complete)
+(use-package go-complete :ensure t)
 (add-hook 'completion-at-point-functions 'go-complete-at-point)
 
 ;; direx
-(require 'go-direx)
+(use-package go-direx :ensure t)
 
 ;; guru
-(require 'go-guru)
+(use-package go-guru :ensure t)
 
 ;; lint
 (add-to-list 'load-path "PATH CONTAINING golint.el" t)
-(require 'golint)
+(use-package golint :ensure t)
 
 (provide 'go-ext)
 

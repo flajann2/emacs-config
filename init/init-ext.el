@@ -16,11 +16,6 @@
 ;; No more annoying splash screen
 (setq inhibit-splash-screen t)
 
-;; MELPA
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-;; (package-initialize)
 ;; (push 'company-robe company-backends)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
 

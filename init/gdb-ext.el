@@ -1,4 +1,4 @@
-(require 'gud)
+(use-package gud :ensure t)
 
 ; GDB layout
 (defadvice gdb-setup-windows (after activate)

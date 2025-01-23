@@ -1,7 +1,7 @@
 ;; TODO: Remove this once release is accepted.
 (add-to-list 'load-path "~/.config/emacs-config/schlau-compile/")
 
-(require 'compile)
+(use-package compile :ensure t)
 (require 'schlau-compile)
 
 (defconst cppclang "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")

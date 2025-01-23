@@ -10,17 +10,17 @@
 ;; Ruby IDE
 ;; TODO: the next line smells up to the high heavens
 (add-to-list 'load-path "~/.emacs.d/rinari")
-(require 'rinari)
+(use-package rinari :ensure t)
 (global-rinari-mode)
-(require 'ido)
+(use-package ido :ensure t)
 (ido-mode t)
 
 ;; Ruby extensions
 (add-hook 'ruby-mode-hook 'zossima-mode)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'dired-mode-hook 'rspec-dired-mode)
-(require 'bundler)
-;; (require 'helm-rb)
+(use-package bundler :ensure t)
+;; (use-package helm-rb :ensure t)
 
 ;; Ruby reload method buffer based on clicking the thumbwheel!
 (global-set-key [mouse-2] 'ecb-rebuild-methods-buffer)

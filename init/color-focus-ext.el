@@ -1,5 +1,5 @@
 ;;; Change color on focus
-;; (require 'focus-color)
+;; (use-package focus-color :ensure t)
 
 ;;; ;; Load my delightful themes, bitches!1!
 ;;; (if (display-graphic-p)

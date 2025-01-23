@@ -67,7 +67,7 @@
 (add-hook 'text-mode-hook 'text-mode-hook-setup)
 
 ;; Lazy checking
-(require 'flyspell-lazy)
+(use-package flyspell-lazy :ensure t)
 (flyspell-lazy-mode 1)
 (flyspell-prog-mode)
 

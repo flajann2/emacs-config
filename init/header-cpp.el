@@ -1,6 +1,6 @@
 ;; files without an extention as c++ header
 ;; bacially, if they are located within a directory named 'include'
-(require 'cl)
+(use-package cl :ensure t) ;; TODO -- deprecated, package no longer avail
 
 ;; (defun file-in-directory-list-p (file dirlist)
 ;;   "Returns true if the file specified is contained within one of
