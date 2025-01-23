@@ -38,7 +38,7 @@
       (require-m 'haskell-ext)
       ;; (require-m 'ruby-ext) ;; something smells in this file
       (require-m 'bookmarks)
-      (require-m 'toc-ext)
+      (require-m 'org-toc-ext)
       (require-m 'compilation-ext)
       ;; (require-m 'projectile-ext)
       ;; (require-m 'go-ext)
@@ -51,7 +51,7 @@
       ;; (require-m 'multiple-cursors)
       (require-m 'cppcheck-ext)
       (require-m 'clangtidy-ext)
-      (require-m 'idle-hilight-ext) ;; idle hightlightuing
+      (require-m 'idle-hilight-ext) ;; idle hightlighting
       (require-m 'schlau-ext)
       ;; (require-m 'tide-ext)
       ;; (require-m 'fish-setup)
@@ -60,10 +60,10 @@
       (require-m 'workgroups-ext)
       ;; (require-m 'gptel-ext)
       (require-m 'window-layout-ext)
-      ;; (require-m magit-ext)
+      (require-m 'magit-ext)
       (require-m 'color-focus-ext)
       (require-m 'clipboard-ext)
-      ;; (require-m 'ellama-ext)
+      (require-m 'ellama-ext)
       (message "*** LOADING INIT CONFIGS COMPLETE ***"))
   )
 

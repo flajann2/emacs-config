@@ -1,5 +1,5 @@
 ;; Workgroups 2
 
-(require 'workgroups2)
+(use-package workgroups2 :ensure t)
 
 (provide 'workgroups-ext)

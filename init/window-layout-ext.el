@@ -1,4 +1,4 @@
-(require 'window-layout)
+(use-package window-layout :ensure t) ;; TODO clean this up
 
 ;; Window Layout
 ;; Split a frame or window into some windows according to a layout

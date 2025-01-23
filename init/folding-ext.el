@@ -1,5 +1,6 @@
 ;; Folding
-(require 'yafolding)
+;; TODO clean this up
+(use-package yafolding :ensure t)
 
 (add-hook 'prog-mode-hook
           (lambda () (yafolding-mode)))

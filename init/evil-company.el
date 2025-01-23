@@ -1,11 +1,14 @@
 ;; total evil lurks here.
 
 ;; prelude to evil
-(require 'powerline)
-(powerline-default-theme)
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme))
 
 ;; Total evil. Toggle mode with c-z
-(require 'evil)
-(evil-mode 1)
+(use-package evil
+  :ensure t
+  :config (evil-mode 1))
 
 (provide 'evil-company)

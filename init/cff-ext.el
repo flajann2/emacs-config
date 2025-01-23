@@ -1,15 +1,16 @@
-(require 'cff)
 ;;;; we are using this for all things cpp
 
-;;; cff -- defines shortcut for find source/header file for the current file
-(add-hook 'c++-mode-hook
-          '(lambda ()
-             (define-key c-mode-base-map (kbd "M-o") 'cff-find-other-file)))
-(add-hook 'c-mode-hook
-          '(lambda ()
-             (define-key c-mode-base-map (kbd "M-o") 'cff-find-other-file)))
-
-
+(use-package cff
+             :ensure t
+             :config
+                ;;; cff -- defines shortcut for find source/header file for the current file
+                ;; TODO set this hook up properly with use-package!
+                (add-hook 'c++-mode-hook
+                  '(lambda ()
+                     (define-key c-mode-base-map (kbd "M-o") 'cff-find-other-file)))
+                (add-hook 'c-mode-hook
+                  '(lambda ()
+                    (define-key c-mode-base-map (kbd "M-o") 'cff-find-other-file))))
 
 ;; Auto-complete c++ headers FIXME
 ;;(require 'auto-complete)

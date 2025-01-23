@@ -1,19 +1,26 @@
-;; Icicles Setup
-(require 'icicles)
-(icy-mode 1)
+;; Icicles Setup FIXME
+;;; (use-package icicles
+;;;              :ensure t
+;;;              :config
+;;;                 (icy-mode 1))
+
 
 ;; LaTeX (alles)
 ;; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
 
 ;; Shell script checking
-(require 'flymake-shell)
-(add-hook 'sh-set-shell-hook 'flymake-shell-load)
+(use-package flymake-shell
+             :ensure t
+             :config
+                 (add-hook 'sh-set-shell-hook 'flymake-shell-load))
 
 ;; indent guide
-(require 'indent-guide)
-(indent-guide-global-mode)
-(set-face-background 'indent-guide-face "dimgray")
+(use-package indent-guide
+             :ensure t
+             :config
+                (indent-guide-global-mode)
+                (set-face-background 'indent-guide-face "dimgray"))
 
 ;; Python mode
 (add-hook 'python-mode-hook
@@ -31,11 +38,11 @@
 (setq shell-file-name "/bin/bash")
 (setq shell-command-switch "-lc")
 
-;; C++ extra hilighting...
-(modern-c++-font-lock-global-mode t)
+;; C++ extra hilighting...FIXME
+;; (modern-c++-font-lock-global-mode t)
 
 ;; screen shot attachments
-(require 'org-attach-screenshot)
+(use-package org-attach-screenshot :ensure t)
 
 ;; turn off those pesky initialization warnings
 (setq warning-minimum-level :emergency)
@@ -54,7 +61,7 @@
   (warn "toc-org not found"))
 
 ;; iedit multiple regions substitute (c-;)
-(require 'iedit)
+(use-package iedit :ensure t)
 
 ;; ediff character level
 (setq-default ediff-forward-word-function 'forward-char)

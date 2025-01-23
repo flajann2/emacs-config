@@ -26,13 +26,13 @@
 
 ;; Mustache
 (add-to-list 'load-path "~/.emacs.d/vendor")
-(require 'mustache-mode)
+(use-package mustache-mode :ensure t)
 
 ;; Tabwidth in general
 (setq tab-width 2)
 
 ;; Handlebars
-(require 'handlebars-mode)
+(use-package handlebars-mode :ensure t)
 
 ;; Force tabs to be spaces
 (add-hook 'after-change-major-mode-hook
@@ -42,12 +42,14 @@
              (setq tab-width 2)))
 
 ;; Sublimity
-(require 'sublimity)
-(require 'sublimity-scroll)
-(require 'sublimity-map)
+(use-package sublimity
+             :ensure t
+             :config
+                (require 'sublimity-scroll)
+                (require 'sublimity-map))
 
 ;; Bash FIXME
-;;(require 'bash-completion)
+;;(use-package 'bash-completion)
 ;;(bash-completion-setup)
 
 ;; Auto modes
@@ -83,7 +85,7 @@
 
 ;; CEDET and gdb integration
 (global-ede-mode 1)
-(require 'semantic/sb)
+(use-package semantic/sb)
 (semantic-mode 1)
 (setq
  ;; use gdb-many-windows by default
@@ -96,21 +98,21 @@
  imenu-auto-rescan t
  )
 
-;; diff-h1
-(global-diff-hl-mode)
+;; diff-h1 FIXME
+;;(global-diff-hl-mode)
 
 ;; flymake
-(require 'flymake-ruby)
+(use-package flymake-ruby :ensure t)
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
-(require 'flymake-sass)
+(use-package flymake-sass :ensure t)
 (add-hook 'sass-mode-hook 'flymake-sass-load)
 (add-hook 'scss-mode-hook 'flymake-sass-load)
 
-(require 'flymake-yaml) ;; Not necessary if using ELPA package
+(use-package flymake-yaml :ensure t) ;; Not necessary if using ELPA package
 (add-hook 'yaml-mode-hook 'flymake-yaml-load)
 
-(require 'flymake-python-pyflakes)
+(use-package flymake-python-pyflakes :ensure t)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 ;; Syntax checking
@@ -118,15 +120,15 @@
 ;; (add-hook 'flycheck-mode-hook 'flycheck-rust-setup) -- duplicate
 
 ;; JSON
-(require 'flymake-json)
+(use-package flymake-json :ensure t)
 (add-hook 'json-mode 'flymake-json-load)
 
 ;; Automatically reload changed files.
 (global-auto-revert-mode t)
 (setq auto-revert-verbose nil)
 
-;; Goodbye annoying toolbar
-(tool-bar-pop-up-mode 1)
+;; Goodbye annoying toolbar FIXME
+;;(tool-bar-pop-up-mode 1)
 
 ;; grab the shell's path
 ;; (exec-path-from-shell-initialize)
@@ -135,18 +137,18 @@
 ;; (highlight-doxygen-global-mode 1)
 
 ;; bracketed paste
-(require 'bracketed-paste)
+(use-package bracketed-paste :ensure t)
 (bracketed-paste-enable)
 
 ;; assembly for C++ code at point
-;; (require 'disaster)
+;; (use-package disaster)
 ;; (define-key c-mode-base-map (kbd "C-c d") 'disaster)
 
-;; global launch
-(global-launch-mode +1)
+;; global launch FIXME
+;;(global-launch-mode +1)
 
 ;; Pretty Org
-;; (require 'org-superstar)
+;; (use-package 'org-superstar)
 ;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 (provide 'init-ext)

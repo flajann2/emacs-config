@@ -1,5 +1,5 @@
 ;; idle highlight
-(require 'idle-highlight-in-visible-buffers-mode)
+(use-package idle-highlight-in-visible-buffers-mode :ensure t)
 
 (set-face-attribute 'idle-highlight-in-visible-buffers nil
                     :background "DarkOrange3"

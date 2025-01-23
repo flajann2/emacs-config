@@ -1,12 +1,16 @@
 ;; parens!!!!
-(require 'mic-paren) ; loading
-(paren-activate)     ; activating
+(use-package mic-paren
+  :ensure t
+  :config
+  (paren-activate))
 ;;(add-function :around show-paren-data-function #'my-show-paren-any)
 
-(require 'smartparens-config)
+(use-package smartparens
+  :ensure t
+  :config
+  (setq show-paren-delay 2)
+  (setq show-paren-style 'expression))
 
-(setq show-paren-delay 2)
-(setq show-paren-style 'expression)
 ;; (set-face-background 'show-paren-match-face "#115588")
 ;; (set-face-attribute 'show-paren-match-face nil
 ;;         :weight 'bold :underline nil :overline nil :slant 'normal)

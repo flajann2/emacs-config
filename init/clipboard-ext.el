@@ -1,10 +1,10 @@
 ;; Clipboard
+;; TODO: WIP
 
 (setq select-enable-clipboard t)
 (setq select-enable-primary nil)
 (setq x-select-enable-clipboard t)
 (setq x-select-enable-primary nil)
-
 
 ;;; (defun my-wayland-copy ()
 ;;;   "Copy selected text to Wayland clipboard."

@@ -1,6 +1,5 @@
 ;;
-(require 'magit-lfs)
-
+(use-package magit-lfs :ensure t)
 
 (provide 'magit-ext)
 ;; The `magit-lfs' is plugin for `magit', most famous Emacs-Git integration.
