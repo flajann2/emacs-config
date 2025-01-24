@@ -1,5 +1,7 @@
 ;;;; we are using this for all things cpp
 
+(use-package cmake-mode :ensure t)
+
 (use-package cff
              :ensure t
              :config

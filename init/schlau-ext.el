@@ -26,17 +26,18 @@
        (eval `'((go-mode . ,gomake)))
 
        ;; compile C++
-       (eval `'((cmake-mode . ,cppclang)))
-       (eval `'((c++-mode . ,cppclang)))
+       (eval `'((cmake-mode  . ,cppclang)))
+       (eval `'((c++-mode    . ,cppclang)))
        (eval `'((c++-ts-mode . ,cppclang)))
 
        ;; compile Rust
-       (eval `'((rust-mode  . ,rustmake)))
-       (eval `'((toml-mode  . ,rustmake)))
+       (eval `'((rust-mode   . ,rustmake)))
+       (eval `'((toml-mode   . ,rustmake)))
 
        ;; build Haskell -- now will convert to cabal
        (eval `'((haskell-mode          . ,hackage)))
        (eval `'((haskell-cabal-mode    . ,hackage)))
+
        ;; build the yaml files the old way
        (eval `'((yaml-mode             . ,stackage)))
        
@@ -56,7 +57,7 @@
        (eval `'((python-mode . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
-       (eval `'((LaTeX-mode . ,patentex)))
+       (eval `'((LaTeX-mode   . ,patentex)))
        (eval `'((cdlatex-mode . ,patentex)))
        ))
 
