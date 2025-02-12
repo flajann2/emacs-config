@@ -10,4 +10,15 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "◆" "◇" "✿")))
 
+;;; (use-package org-superstar
+;;;   :ensure t
+;;;   :config
+;;;     ;; This is usually the default, but keep in mind it must be nil
+;;;     (setq org-hide-leading-stars nil)
+;;;     ;; This line is necessary.
+;;;     (setq org-superstar-leading-bullet ?\s)
+;;;     ;; If you use Org Indent you also need to add this, otherwise the
+;;;     ;; above has no effect while Indent is enabled.
+;;;     (setq org-indent-mode-turns-on-hiding-stars nil))
+
 (provide 'org-ext)

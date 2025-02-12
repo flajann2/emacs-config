@@ -2,7 +2,8 @@
   - [[#author][Author]]
   - [[#version][Version]]
   - [[#synopsis][Synopsis]]
-  - [[#documentation][Documentation]]
+  - [[#documentatio][Documentatio]]
+    - [[#installation-notes][Installation notes]]
     - [[#organization][Organization]]
     - [[#emacs-package-dependecies][Emacs Package Dependecies]]
   - [[#schlau-compile-documentation][Schlau Compile Documentation]]
@@ -30,7 +31,7 @@
    as a GUI, as many configurations may only make sense
    in a GUI context.
 
-** Documentation
+** Documentatio
 *** Installation notes
     + Always use the tagged version for the "stable" versions.
       The latest can be pulled from master, but no gurantees.

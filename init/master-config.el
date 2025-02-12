@@ -33,12 +33,12 @@
       (require-m 'org-ext)
       (require-m 'org-pub)
       (require-m 'org-todo)
+      (require-m 'org-toc-ext)
       (require-m 'parens-ext)
       (require-m 'irc-ext)
       (require-m 'haskell-ext)
       ;; (require-m 'ruby-ext) ;; something smells in this file
       (require-m 'bookmarks)
-      (require-m 'org-toc-ext)
       (require-m 'compilation-ext)
       ;; (require-m 'projectile-ext)
       ;; (require-m 'go-ext)
@@ -64,6 +64,7 @@
       (require-m 'color-focus-ext)
       (require-m 'clipboard-ext)
       ;; (require-m 'ellama-ext) ;; not loading properly FIXME
+      ;; (require 'haskell-ihp)
       (message "*** LOADING INIT CONFIGS COMPLETE ***"))
   )
 
