@@ -11,6 +11,10 @@
   (setq show-paren-delay 2)
   (setq show-paren-style 'expression))
 
+;;; (use-package evil-smartparens
+;;;   :ensure t
+;;;   :config (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+
 ;; (set-face-background 'show-paren-match-face "#115588")
 ;; (set-face-attribute 'show-paren-match-face nil
 ;;         :weight 'bold :underline nil :overline nil :slant 'normal)

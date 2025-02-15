@@ -10,8 +10,15 @@
 (use-package evil
   :ensure t
   :init
-  :config (evil-mode 1))
+  :config
+  (evil-mode 1)
+  (evil-set-undo-system 'undo-redo))
 
-(evil-set-undo-system 'undo-redo)
+;; evil org mode
+(use-package evil-org
+  :ensure t
+  )
+
+;; 
 
 (provide 'evil-company)

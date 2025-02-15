@@ -17,8 +17,11 @@
 (defconst pythonrun "cd %G && pipenv install -e . && pipenv run python3 setup.py build && pipenv run python3 -m unittest discover -s tests")
 (defconst patentex "cd %G && ./compile.fish")
 
-(defconst stackage "cd %G && stack build --copy-bins && stack test")
-(defconst hackage "cd %G && cabal build --enable-tests && cabal test")
+(defconst stackage    "cd %G && stack build --copy-bins && stack test")
+(defconst hackage     "cd %G && cabal build --enable-tests && cabal test")
+
+;; for the website project, problem with building warp FIX
+(defconst hackage-fix "cd %G && cabal build --constraint='zlib -pkg-config' --enable-tests && cabal test")
 
 (setq schlau-compile-alist
       (append
@@ -35,8 +38,8 @@
        (eval `'((toml-mode   . ,rustmake)))
 
        ;; build Haskell -- now will convert to cabal
-       (eval `'((haskell-mode          . ,hackage)))
-       (eval `'((haskell-cabal-mode    . ,hackage)))
+       (eval `'((haskell-mode          . ,hackage-fix)))
+       (eval `'((haskell-cabal-mode    . ,hackage-fix)))
 
        ;; build the yaml files the old way
        (eval `'((yaml-mode             . ,stackage)))
@@ -48,13 +51,13 @@
        (eval `'((elixir-mode . ,elixirrel)))
 
        ;; compile Java using Maven (main class must be specified in the .pom!!!)
-       (eval `'((java-mode . ,javamake)))
+       (eval `'((java-mode    . ,javamake)))
 
        ;; compile Kotlin using Gradle
-       (eval `'((kotlin-mode . ,kotlinmake)))
+       (eval `'((kotlin-mode  . ,kotlinmake)))
 
        ;; Python building and testing
-       (eval `'((python-mode . ,pythonrun)))
+       (eval `'((python-mode  . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
        (eval `'((LaTeX-mode   . ,patentex)))

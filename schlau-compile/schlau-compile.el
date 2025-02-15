@@ -2,7 +2,7 @@
 ;; URL: https://github.com/flajann2/elisp#schlau-compile
 ;; Version: 20200201
 
-;; Copyright (C) 2018-2022 by Fred Mitchell
+;; Copyright (C) 2018-2025 by Fred Mitchell
 ;; Copyright (C) 1998-2017 by Seiji Zenitani
 
 ;; Author: Fred Mitchell <fred.mitchell@gmx.de>

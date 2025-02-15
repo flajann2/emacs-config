@@ -42,7 +42,7 @@
 ;; (modern-c++-font-lock-global-mode t)
 
 ;; screen shot attachments
-(use-package org-attach-screenshot :ensure t)
+;; (use-package org-attach-screenshot :ensure t)
 
 ;; turn off those pesky initialization warnings
 (setq warning-minimum-level :emergency)
