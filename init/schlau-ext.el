@@ -21,7 +21,7 @@
 (defconst hackage     "cd %G && cabal build --enable-tests && cabal test")
 
 ;; for the website project, problem with building warp FIX
-(defconst hackage-fix "cd %G && cabal build --constraint='zlib -pkg-config' --enable-tests && cabal test")
+(defconst hackage-fix "cd %G && cabal build --constraint='zlib -pkg-config' --enable-tests")
 
 (setq schlau-compile-alist
       (append
