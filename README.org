@@ -10,7 +10,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.0.2
+   3.0.0.3
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
