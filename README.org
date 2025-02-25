@@ -2,10 +2,9 @@
   - [[#author][Author]]
   - [[#version][Version]]
   - [[#synopsis][Synopsis]]
-  - [[#documentatio][Documentatio]]
+  - [[#documentation][Documentation]]
     - [[#installation-notes][Installation notes]]
     - [[#organization][Organization]]
-    - [[#emacs-package-dependecies][Emacs Package Dependecies]]
   - [[#schlau-compile-documentation][Schlau Compile Documentation]]
 
 ** Author
@@ -31,10 +30,10 @@
    as a GUI, as many configurations may only make sense
    in a GUI context.
 
-** Documentatio
+** Documentation
 *** Installation notes
     + Always use the tagged version for the "stable" versions.
-      The latest can be pulled from master, but no gurantees.
+      The latest can be pulled from master, but no gaurentees.
     + 3.0.0.2 -- An overhaul is in progress to make everything use use-package.
       You will no longer have to install dependencies by hand. Some functionality
       is currently broken, like updating the Org TOC. It will
@@ -46,13 +45,6 @@
 
     You may want to merge your current .emacs file with this one
     to preserve your present settings.
-*** Emacs Package Dependecies
-    The current snapshot of the dependecies can be found at:
-
-    [[file:manifest/emacs-package-manifest.el][/manifest/emacs-package-manifest.el]]
-    
-    Some of these dependecies may be out-of-date or no longer used.
-    I will clean then up later.
 
 ** Schlau Compile Documentation
    [[file:schlau-compile/README.org::*schlau-compile][Schlau Compile]] is a utility to allow you to configure
