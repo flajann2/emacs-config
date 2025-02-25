@@ -1,13 +1,25 @@
 ;; Haskell
 ;; TODO: Clean this beast up. Hooks, remove old comments, etc. 
 
+;; set up Haskell mode
 (use-package haskell-mode
   :ensure t
+  :hook (haskell-mode . turn-on-haskell-doc-mode)
+  :hook (haskell-mode . turn-on-haskell-indentation)
+  :hook (haskell-mode . hlint-refactor-mode) 
+  :hook (haskell-mode . intero-mode)
+  :hook (haskell-mode . interactive-haskell-mode)
+  :init
+  (add-to-list 'exec-path "~/.local/bin")
   :config
-  (add-hook 'haskell-mode-hook 'hlint-refactor-mode) ; TODO: do the hooks properly
-  (add-hook 'haskell-mode-hook 'intero-mode)
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-  (setq haskell-process-type 'cabal-repl))
+  (require 'haskell-interactive-mode)
+  (require 'haskell-process)
+  (setq haskell-process-type 'cabal-repl)
+  (setq haskell-interactive-mode-eval-mode 'haskell-mode)
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-h") 'haskell-hoogle))
 
 ;; Repl setup code for Haskell.
 ;;; (use-package dante
@@ -35,8 +47,7 @@
 ;; Support for hlint
 (use-package flymake-hlint
   :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'flymake-hlint-load)) ; TODO do the hook properly
+  :hook (haskell-mode . flymake-hlint-load))
 
 ;; hasky stack integration
 ;; (global-set-key (kbd "<next>") nil)
@@ -44,20 +55,6 @@
 ;; (global-set-key (kbd "<f7> h h") #'hasky-stack-package-action)
 ;; (global-set-key (kbd "<f7> h i") #'hasky-stack-new)
 
-;; set up Haskell mode
-(use-package haskell-mode
-  :ensure t
-  :hook (haskell-mode . turn-on-haskell-doc-mode)
-  :hook (haskell-mode . turn-on-haskell-indentation)
-  ;; Uncomment the following line if you want to enable line numbers
-  ;; :hook (haskell-mode . display-line-numbers-mode)
-  :init
-  (add-to-list 'exec-path "~/.local/bin")
-  :config
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-h") 'haskell-hoogle))
 
 ;; TODO: We no longer need this, as we use Schlau-compile!
 ;;; (use-package haskell-cabal
@@ -86,31 +83,29 @@
 ;; company ghci
 (use-package company-ghci
   :ensure t
+  :hook (haskell-mode             . company-mode)
+  :hook (haskell-interactive-mode . company-mode)
   :config
-  (push 'company-ghci company-backends)
-  (add-hook 'haskell-mode-hook 'company-mode)
-  (add-hook 'haskell-interactive-mode-hook 'company-mode)) ; TODO hook this up the right way
-
-;; comment evaluations -- >>>
-(use-package haskell-mode
-  :ensure t
-  :config
-  (require 'haskell-interactive-mode)
-  (require 'haskell-process)
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode) ; TODO hook me up
-  (setq haskell-process-type 'auto)
-  (setq haskell-interactive-mode-eval-mode 'haskell-mode))
+  (push 'company-ghci company-backends))
 
 ;; LSP and HLS
 ;; TODO the following may duplicate functionality
-(use-package lsp-haskell
-  :ensure t)
+(use-package lsp-haskell :ensure t)
+
 (use-package lsp-mode
   :ensure t
   :hook ((haskell-mode . lsp)
          (haskell-literate-mode-hook . lsp))
   :config
   (setq lsp-haskell-server-path "haskell-language-server-wrapper"))
+
+;;; (use-package lsp-ui
+;;;   :ensure t
+;;;   :hook (lsp-mode     . lsp-ui-mode)
+;;;   :hook (haskell-mode . flycheck-mode)
+;;;   ;; :hook (haskell-mode . lsp-haskell-enable)
+;;;   )
+
 ;; (add-hook 'haskell-mode-hook #'lsp)
 ;; (add-hook 'haskell-literate-mode-hook #'lsp)
 
@@ -208,4 +203,11 @@
 ;;;                                     :ghciCmd "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show"
 ;;;                                     :logFile "logging.log"
 ;;;                                     :logLevel "WARNING"))
+
+;; Hasktags -- uses the ghcup path
+(let ((my-cabal-path (expand-file-name "~/.ghcup/bin")))
+  (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
+  (add-to-list 'exec-path my-cabal-path))
+(custom-set-variables '(haskell-tags-on-save t))
+
 (provide 'haskell-ext)

@@ -111,8 +111,10 @@
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 ;; Syntax checking
-(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
-;; (add-hook 'flycheck-mode-hook 'flycheck-rust-setup) -- duplicate
+(use-package flycheck
+             :ensure t
+             :hook (flycheck-mode . flycheck-color-mode-line-mode)
+             )
 
 ;; JSON
 (use-package flymake-json :ensure t)

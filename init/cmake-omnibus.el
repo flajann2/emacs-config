@@ -28,9 +28,9 @@
    (use-package flycheck-clang-analyzer :ensure t)
    (flycheck-clang-analyzer-setup))
 
-;; flycheck clang-tidy
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+;;; ;; flycheck clang-tidy -- duplicate
+;;; (eval-after-load 'flycheck
+;;;   '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
 
 ;; auto complete c++
 (ac-config-default)

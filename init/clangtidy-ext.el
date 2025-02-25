@@ -1,6 +1,7 @@
 ;; Clang tidy
 
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+(use-package flycheck
+  :ensure t
+  :hook  (flycheck-mode . flycheck-clang-tidy-setup))
 
 (provide 'clangtidy-ext)

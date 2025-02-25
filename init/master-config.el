@@ -18,6 +18,7 @@
 (require-m 'google-cstyle)
 (require-m 'cff-ext)
 (require-m 'lua-ext)
+(require-m 'elm-ext)
 
 ;; (require-m 'annoying-patches)
 (require-m 'gdb-ext)
@@ -50,7 +51,7 @@
       ;; (require-m 'cmake-omnibus)
       ;; (require-m 'multiple-cursors)
       ;; (require-m 'cppcheck-ext)
-      (require-m 'clangtidy-ext)
+      ;; (require-m 'clangtidy-ext)
       (require-m 'idle-hilight-ext) ;; idle hightlighting
       (require-m 'schlau-ext)
       ;; (require-m 'tide-ext)
