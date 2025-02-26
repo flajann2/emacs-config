@@ -4,13 +4,14 @@
   - [[#synopsis][Synopsis]]
   - [[#documentation][Documentation]]
     - [[#installation-notes][Installation notes]]
+    - [[#release-notes][Release notes]]
     - [[#organization][Organization]]
   - [[#schlau-compile-documentation][Schlau Compile Documentation]]
 
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.0.3
+   3.0.0.4
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -34,10 +35,12 @@
 *** Installation notes
     + Always use the tagged version for the "stable" versions.
       The latest can be pulled from master, but no gaurentees.
+*** Release notes
     + 3.0.0.2 -- An overhaul is in progress to make everything use use-package.
       You will no longer have to install dependencies by hand. Some functionality
       is currently broken, like updating the Org TOC. It will
       be addressed eventually.
+    + 3.0.0.4 -- bug fixes and tweaks. Ellama now works. C-c e ? for keyboard shortcuts
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you
