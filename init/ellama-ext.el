@@ -17,13 +17,13 @@
   ;; Predefined llm providers for interactive switching.
   ;; You shouldn't add ollama providers here - it can be selected interactively
   ;; without it. It is just example.
-  (setopt ellama-providers
-		    '(("opencoder" . (make-llm-ollama
-				   :chat-model "opencoder"
-				   :embedding-model "opencoder:8b"))
-		      ("llama3.2" . (make-llm-ollama
-				    :chat-model "llama3.2"
-				    :embedding-model "mistral:7b-instruct-v0.2-q6_K"))))
+  ;;; (setopt ellama-providers
+	;;; 	    '(("opencoder" . (make-llm-ollama
+	;;; 			   :chat-model "opencoder"
+	;;; 			   :embedding-model "opencoder:8b"))
+	;;; 	      ("llama3.2" . (make-llm-ollama
+	;;; 			    :chat-model "llama3.2"
+	;;; 			    :embedding-model "mistral:7b-instruct-v0.2-q6_K"))))
   ;; Naming new sessions with llm
   (setopt ellama-naming-provider
 	  (make-llm-ollama

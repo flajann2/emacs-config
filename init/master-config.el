@@ -21,7 +21,7 @@
 ;; (require-m 'truncate-ext)
 ;; (require-m 'spelling-ext)
 ;; (require-m 'annoying-patches)
-(message "*** LOADING INIT Command-line CONFIGS COMPLETE ***"))
+(message "*** LOADING INIT Command-line CONFIGS COMPLETE ***")
 
 ;; init auf graphical
 (if (display-graphic-p)
@@ -37,6 +37,7 @@
       (require-m 'parens-ext)
       (require-m 'irc-ext)
       (require-m 'haskell-ext)
+      (require-m 'purescript-ext)
       (require-m 'bookmarks)
       (require-m 'compilation-ext)
       (require-m 'auto-dim-ext)
@@ -45,6 +46,7 @@
       (require-m 'schlau-ext)
       (require-m 'pretty)
       (require-m 'fish-ext)
+      (require-m 'typescript-ext)
       (require-m 'workgroups-ext)
       (require-m 'window-layout-ext)
       (require-m 'magit-ext)
