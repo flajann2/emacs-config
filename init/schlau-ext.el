@@ -20,6 +20,21 @@
 (defconst stackage "cd %G && stack build --copy-bins && stack test")
 (defconst hackage "cd %G && cabal build --enable-tests && cabal test")
 
+;; npmrun requires that there is a package.json file to
+;; coordinate things. This will run the build and start the
+;; start the application.
+;;
+;; example of what to add to your package.json file:
+;;   "scripts": {
+;;     "build": "tsc",
+;;     "start": "node build/server.js"
+;;   }
+;; TODO: launch npm start seperately.
+
+(defconst npmrun-b "cd %G && npm run build")
+(defconst npmrun   "cd %G && npm run build && npm run start")
+(defconst npmrun-i "cd %G && npm run build && npm run interactive")
+
 (setq schlau-compile-alist
       (append
        ;; compile Go
@@ -57,8 +72,18 @@
        (eval `'((python-mode . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
-       (eval `'((LaTeX-mode   . ,patentex)))
-       (eval `'((cdlatex-mode . ,patentex)))
+       (eval `'((LaTeX-mode      . ,patentex)))
+       (eval `'((cdlatex-mode    . ,patentex)))
+
+       ;; TypeScript
+       (eval `'((typescript-mode . ,npmrun-b)))
+       (eval `'((json-mode       . ,npmrun-i)))
+
+       ;; PureScript
+       (eval `'((purescript-mode . ,npmrun)))
+
+       ;; Elm (experimental -- elm is for the frontend. FIX)
+       (eval `'((elm-mode        . ,npmrun)))
        ))
 
 (global-set-key [f5] 'schlau-compile-compile)
