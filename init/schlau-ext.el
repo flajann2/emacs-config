@@ -35,6 +35,11 @@
 (defconst npmrun   "cd %G && npm run build && npm run start")
 (defconst npmrun-i "cd %G && npm run build && npm run interactive")
 
+;; elm compile.
+(defconst elm-make "cd %G && elm make elm-src/Main.elm --output=elm-out/elm.js && elm reactor")
+(defconst elm-npm  "cd %G && npm run build && elm reactor")
+(defconst elm-npmi "cd %G && npm run build && npm run interactive")
+
 (setq schlau-compile-alist
       (append
        ;; compile Go
@@ -57,19 +62,19 @@
        (eval `'((yaml-mode             . ,stackage)))
        
        ;; compile rubygem
-       (eval `'((ruby-mode . ,rubymake)))
+       (eval `'((ruby-mode       . ,rubymake)))
 
        ;; compile Elixir
-       (eval `'((elixir-mode . ,elixirrel)))
+       (eval `'((elixir-mode     . ,elixirrel)))
 
        ;; compile Java using Maven (main class must be specified in the .pom!!!)
-       (eval `'((java-mode . ,javamake)))
+       (eval `'((java-mode       . ,javamake)))
 
        ;; compile Kotlin using Gradle
-       (eval `'((kotlin-mode . ,kotlinmake)))
+       (eval `'((kotlin-mode     . ,kotlinmake)))
 
        ;; Python building and testing
-       (eval `'((python-mode . ,pythonrun)))
+       (eval `'((python-mode     . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
        (eval `'((LaTeX-mode      . ,patentex)))
@@ -83,11 +88,11 @@
        (eval `'((purescript-mode . ,npmrun)))
 
        ;; Elm (experimental -- elm is for the frontend. FIX)
-       (eval `'((elm-mode        . ,npmrun)))
+       (eval `'((elm-mode        . ,elm-npmi)))
        ))
 
-(global-set-key [f5] 'schlau-compile-compile)
-(global-set-key [f6] 'schlau-compile-query)
+(global-set-key [f5]   'schlau-compile-compile)
+(global-set-key [f6]   'schlau-compile-query)
 (global-set-key [C-f6] 'kill-compilation)
 
 ;; Makes sense to stick this here. :D
