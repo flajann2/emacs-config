@@ -3,6 +3,14 @@
 ;; Window Layout
 ;; Split a frame or window into some windows according to a layout
 ;; recipe.
+;;      Status: Installed in ‘window-layout-20241104.900/’ (unsigned). Delete
+;;     Version: 20241104.900
+;;      Commit: 277d0a8247adf13707703574cbbc16ddcff7c5fd
+;;     Summary: Window layout manager.
+;;     Website: https://github.com/kiwanami/emacs-window-layout
+;;    Keywords: window layout 
+;;      Author: SAKURAI Masashi <m.sakuraiatmarkkiwanami.net>
+;; Other versions: 20241104.900 (melpa).
 ;; 
 ;; ; Example code
 ;; 
@@ -32,19 +40,21 @@
 ;;; 
 ;;; (add-hook 'window-setup-hook 'my-prevent-splitting-treemacs)
 
-;; Layout function
+;; Layout function, 4K screen
 ; -> multi pane layout.
 (setq wm-width 85)
+(setq wm-height 40)
 
 ;; Debug: Check the value of wm-width
 ;; (message "wm-width is set to: %d" wm-width)
+;; (message "wm-height is set to: %d" wm-height)
 
 (setq wm ; <-- window management object
       (wlf:layout
        '(| (:left-size 95)
-           folder
+           (- (:upper-size-ratio 0.5) folder-top folder-bottom)
            (| (:left-size 95)
-              summary
+              (- (:upper-size-ratio 0.5) summary-top summary-bottom)
               (| (:left-size 95)
                  workhorse
                  (| (:left-size 95)
@@ -53,18 +63,22 @@
                        sleephorse
                        message)
                     message))))
-       '((:name folder
-          :buffer "folder buffer")
-         (:name summary
-          :buffer "summary buffer")
+       '((:name folder-top
+                :buffer "folder buffer")
+         (:name folder-bottom
+                :buffer "folder buffer")
+         (:name summary-top
+                :buffer "summary buffer")
+         (:name summary-bottom
+                :buffer "summary buffer")
          (:name message
-          :buffer "message buffer")
+                :buffer "message buffer")
          (:name workhorse
-          :buffer "workhorse buffer")
+                :buffer "workhorse buffer")
          (:name playhorse
                 :buffer "playhorse buffer")
          (:name sleephorse
-          :buffer "sleephorse buffer")
+                :buffer "sleephorse buffer")
         )))
 
 ;; ;; Window controlling
