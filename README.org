@@ -42,6 +42,7 @@
       be addressed eventually.
     + 3.0.0.4 -- bug fixes and tweaks. Ellama now works. C-c e ? for keyboard shortcuts
     + 3.0.0.5 -- paren mismatch caught
+    + 3.0.0.6 -- Window Layout init cleanup
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you
