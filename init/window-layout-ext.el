@@ -49,7 +49,10 @@
                  workhorse
                  (| (:left-size 95)
                     playhorse
-                 message))))
+                    (| (:left-size 95)
+                       sleephorse
+                       message)
+                    message))))
        '((:name folder
           :buffer "folder buffer")
          (:name summary
@@ -59,7 +62,9 @@
          (:name workhorse
           :buffer "workhorse buffer")
          (:name playhorse
-          :buffer "playhorse buffer")
+                :buffer "playhorse buffer")
+         (:name sleephorse
+          :buffer "sleephorse buffer")
         )))
 
 ;; ;; Window controlling
