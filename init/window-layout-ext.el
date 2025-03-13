@@ -42,27 +42,23 @@
 
 ;; Layout function, 4K screen
 ; -> multi pane layout.
-(setq wm-width 85)
-(setq wm-height 40)
 
-;; Debug: Check the value of wm-width
-;; (message "wm-width is set to: %d" wm-width)
-;; (message "wm-height is set to: %d" wm-height)
+(setq wm-height-ratio 0.5)
 
 (setq wm ; <-- window management object
       (wlf:layout
        '(| (:left-size 95)
-           (- (:upper-size-ratio 0.5) folder-top folder-bottom)
+           (- (:upper-size-ratio wm-height-ratio) folder-top folder-bottom)
            (| (:left-size 95)
-              (- (:upper-size-ratio 0.5) summary-top summary-bottom)
+              (- (:upper-size-ratio wm-height-ratio) summary-top summary-bottom)
               (| (:left-size 95)
-                 workhorse
+                 (- (:upper-size-ratio wm-height-ratio) workhorse-top workhorse-bottom)
                  (| (:left-size 95)
-                    playhorse
+                    (- (:upper-size-ratio wm-height-ratio) playhorse-top playhorse-bottom)
                     (| (:left-size 95)
-                       sleephorse
-                       message)
-                    message))))
+                       (- (:upper-size-ratio wm-height-ratio) sleephorse-top sleephorse-bottom)
+                       (- (:upper-size-ratio wm-height-ratio) message-top message-bottom))
+                    ))))
        '((:name folder-top
                 :buffer "folder buffer")
          (:name folder-bottom
@@ -71,13 +67,25 @@
                 :buffer "summary buffer")
          (:name summary-bottom
                 :buffer "summary buffer")
-         (:name message
+         (:name message-top
                 :buffer "message buffer")
-         (:name workhorse
+         (:name message-bottom
+                :buffer "message buffer")
+         (:name workhorse-top
                 :buffer "workhorse buffer")
-         (:name playhorse
+         (:name workhorse-bottom
+                :buffer "workhorse buffer")
+         (:name playhorse-top
                 :buffer "playhorse buffer")
-         (:name sleephorse
+         (:name playhorse-bottom
+                :buffer "playhorse buffer")
+         (:name sleephorse-top
+                :buffer "sleephorse buffer")
+         (:name sleephorse-bottom
+                :buffer "sleephorse buffer")
+         (:name message-top
+                :buffer "sleephorse buffer")
+         (:name message-bottom
                 :buffer "sleephorse buffer")
         )))
 
