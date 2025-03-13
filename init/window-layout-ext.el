@@ -1,165 +1,38 @@
-(use-package window-layout :ensure t) ;; TODO clean this up
+;; Window Layout (currently configured for a large 4K display)
+;; TODO: Do a "macro" to generate layout for
+;; TODO: different screen sizes.
+;; Website: https://github.com/kiwanami/emacs-window-layout
 
-;; Window Layout
-;; Split a frame or window into some windows according to a layout
-;; recipe.
-;;      Status: Installed in ‘window-layout-20241104.900/’ (unsigned). Delete
-;;     Version: 20241104.900
-;;      Commit: 277d0a8247adf13707703574cbbc16ddcff7c5fd
-;;     Summary: Window layout manager.
-;;     Website: https://github.com/kiwanami/emacs-window-layout
-;;    Keywords: window layout 
-;;      Author: SAKURAI Masashi <m.sakuraiatmarkkiwanami.net>
-;; Other versions: 20241104.900 (melpa).
-;; 
-;; ; Example code
-;; 
-;; ;; Layout function
-;; ; -> three pane layout.
-;; (setq wm ; <-- window management object
-;;       (wlf:layout
-;;        '(| (:left-size-ratio 0.3)
-;;            folder
-;;            (- (:upper-max-size 15)
-;;               summary
-;;               message))
-;;        '((:name folder
-;;           :buffer "folder buffer")
-;;          (:name summary
-;;           :buffer "summary buffer")
-;;          (:name message
-;;           :buffer "message buffer")
-;;         )))
-
-;;; ;; never ever split treemacs
-;;; (defun my-prevent-splitting-treemacs ()
-;;;   "Prevent window-layout from splitting the Treemacs window."
-;;;   (when (and (derived-mode-p 'treemacs-mode)
-;;;              (window-dedicated-p (selected-window)))
-;;;     (setq window-layout-split-window nil)))
-;;; 
-;;; (add-hook 'window-setup-hook 'my-prevent-splitting-treemacs)
-
-;; Layout function, 4K screen
-; -> multi pane layout.
-
-(setq wm-height-ratio 0.5)
-
-(setq wm ; <-- window management object
-      (wlf:layout
-       '(| (:left-size 95)
-           (- (:upper-size-ratio wm-height-ratio) folder-top folder-bottom)
-           (| (:left-size 95)
-              (- (:upper-size-ratio wm-height-ratio) summary-top summary-bottom)
-              (| (:left-size 95)
-                 (- (:upper-size-ratio wm-height-ratio) workhorse-top workhorse-bottom)
-                 (| (:left-size 95)
-                    (- (:upper-size-ratio wm-height-ratio) playhorse-top playhorse-bottom)
-                    (| (:left-size 95)
-                       (- (:upper-size-ratio wm-height-ratio) sleephorse-top sleephorse-bottom)
-                       (- (:upper-size-ratio wm-height-ratio) message-top message-bottom))
-                    ))))
-       '((:name folder-top
-                :buffer "folder buffer")
-         (:name folder-bottom
-                :buffer "folder buffer")
-         (:name summary-top
-                :buffer "summary buffer")
-         (:name summary-bottom
-                :buffer "summary buffer")
-         (:name message-top
-                :buffer "message buffer")
-         (:name message-bottom
-                :buffer "message buffer")
-         (:name workhorse-top
-                :buffer "workhorse buffer")
-         (:name workhorse-bottom
-                :buffer "workhorse buffer")
-         (:name playhorse-top
-                :buffer "playhorse buffer")
-         (:name playhorse-bottom
-                :buffer "playhorse buffer")
-         (:name sleephorse-top
-                :buffer "sleephorse buffer")
-         (:name sleephorse-bottom
-                :buffer "sleephorse buffer")
-         (:name message-top
-                :buffer "sleephorse buffer")
-         (:name message-bottom
-                :buffer "sleephorse buffer")
-        )))
-
-;; ;; Window controlling
-;; (wlf:show    wm 'summary)
-;; (wlf:hide    wm 'summary)
-;; (wlf:toggle  wm 'summary)
-;; (wlf:select  wm 'summary)
-;; (wlf:toggle-maximize  wm 'summary)
-;; 
-;; ;; Window updating
-;; (wlf:refresh wm)
-;; (wlf:reset-window-sizes wm)
-;; (wlf:reset-init wm)
-;; 
-;; ;; Accessing a buffer
-;; (wlf:get-buffer wm 'summary) -> <#buffer object>
-;; (wlf:set-buffer wm 'summary "*scratch*")
-;; 
-;; ;; Accessing a window
-;; (wlf:get-window wm 'summary)
-;; 
-;; ;; Layout hook
-;; (defun wlf:test-hook (wset) (message "HOOK : %s" wset))
-;; (wlf:layout-hook-add wm 'wlf:test-hook)
-;; (wlf:layout-hook-remove wm 'wlf:test-hook)
-;; 
-;; ; `wlf:layout' function
-;; 
-;; * Layout recipe:
-;; 
-;; ( (split type) (split option)
-;;                (left window name or recipe)
-;;                (right window name or recipe) )
-;; 
-;;   - : split vertically
-;;   | : split horizontally
-;; 
-;; split option (the prefix 'left' can be replaced by 'right', 'upper' and 'lower'.)
-;;   :left-size  (column or row number) window size
-;;   :left-max-size  (column or row number) if window size is larger than this value, the window is shrunken.
-;;   :left-size-ratio  (0.0 - 1.0) window size ratio. the size of the other side is the rest.
-;; 
-;; Note:
-;; The split option can be omitted.
-;; The size parameters, :size, :max-size and :size-ratio, are mutually
-;; exclusive.  The size of a window is related with one of the other
-;; side window. So, if both side windows set size parameters, the
-;; window size may not be adjusted as you write.
-;; 
-;; * Window options:
-;; 
-;;   :name  [*] the window name.
-;;   :buffer  a buffer name or a buffer object to show the window. If nil or omitted, the current buffer remains. If symbol, it is evaluated as a global variable.
-;;   :default-hide  (t/nil) if t, the window is hided initially. (default: nil)
-;;   :fix-size  (t/nil) if t, when the windows are laid out again, the window size is remained. (default: nil)
-;; 
-;; * subwindow-p option:
-;; 
-;; If this option is not nil, this function splits the windows within
-;; the current window. If this option is nil or omitted, this function
-;; uses the entire space of the current frame. Because some user
-;; actions and complicated window layouts may cause unexpected split
-;; behaviors, it is easy to use the entire space of a frame.
-;; 
-;; * Return value (Window management object):
-;; 
-;; You should not access the management object directly, because it is not
-;; intended direct access.
-;; You can make some management objects to switch the window layout.
-;; 
-;; * Layout hook
-;; 
-;; After splitting windows, registered hook are called with one
-;; argument, the window management object.
+(use-package window-layout
+  :ensure t
+  :config
+  (setq wm-height-ratio 0.5)
+  (setq wm ; <-- window management object
+        (wlf:layout
+         '(| (:left-size 95)
+             (- (:upper-size-ratio wm-height-ratio) p0-top p0-bot)
+             (| (:left-size 95)
+                (- (:upper-size-ratio wm-height-ratio) p1-top p1-bot)
+                (| (:left-size 95)
+                   (- (:upper-size-ratio wm-height-ratio) p2-top p2-bot)
+                   (| (:left-size 95)
+                      (- (:upper-size-ratio wm-height-ratio) p3-top p3-bot)
+                      (| (:left-size 95)
+                         (- (:upper-size-ratio wm-height-ratio) p4-top p4-bot)
+                         (- (:upper-size-ratio wm-height-ratio) p5-top p5-bot))
+                      ))))
+         '((:name p0-top :buffer "p0 top")
+           (:name p0-bot :buffer "p0 bot")
+           (:name p1-top :buffer "p1 top")
+           (:name p1-bot :buffer "p1 bot")
+           (:name p2-top :buffer "p2 top")
+           (:name p2-bot :buffer "p2 bot")
+           (:name p3-top :buffer "p3 top")
+           (:name p3-bot :buffer "p3 bot")
+           (:name p4-top :buffer "p4 top")
+           (:name p4-bot :buffer "p4 bot")
+           (:name p5-top :buffer "p5 top")
+           (:name p5-bot :buffer "p5 bot")
+           ))))
 
 (provide 'window-layout-ext)
