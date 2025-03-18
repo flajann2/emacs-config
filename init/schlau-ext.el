@@ -40,6 +40,9 @@
 (defconst elm-npm  "cd %G && npm run build && elm reactor")
 (defconst elm-npmi "cd %G && npm run build && npm run interactive")
 
+;; LaTeX to PDF
+(defconst latex-file "cd %G && mkdir -p output pdf && pdflatex -output-directory=./output %F && cp ./output/%n.pdf ./pdf")
+
 (setq schlau-compile-alist
       (append
        ;; compile Go
@@ -77,8 +80,8 @@
        (eval `'((python-mode     . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
-       (eval `'((LaTeX-mode      . ,patentex)))
-       (eval `'((cdlatex-mode    . ,patentex)))
+       ;;; (eval `'((LaTeX-mode      . ,patentex)))
+       ;;; (eval `'((cdlatex-mode    . ,patentex)))
 
        ;; TypeScript
        (eval `'((typescript-mode . ,npmrun-b)))
@@ -89,6 +92,9 @@
 
        ;; Elm (experimental -- elm is for the frontend. FIX)
        (eval `'((elm-mode        . ,elm-npmi)))
+
+       ;; LaTeX 
+       (eval `'((latex-mode      . ,latex-file)))
        ))
 
 (global-set-key [f5]   'schlau-compile-compile)
