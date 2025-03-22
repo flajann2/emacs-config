@@ -7,7 +7,7 @@
 
 ;; rcirc reconnect
 (eval-after-load 'rcirc
-  '(defun-rcirc-command reconnect (arg)
+  '(rcirc-define-command  reconnect (arg)
      "Reconnect the server process."
      (interactive "i")
      (unless process

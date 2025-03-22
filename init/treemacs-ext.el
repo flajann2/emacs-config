@@ -6,13 +6,14 @@
     (treemacs)  ;; Open Treemacs
 
     ;; Ensure that treemacs uses nerd-icons or all-the-icons
-    (use-package treemacs-all-the-icons-nerd-fonts
+    (use-package all-the-icons-nerd-fonts
       :ensure t)
     
     (if (require 'treemacs-nerd-icons nil 'noerror)
         (treemacs-load-theme "nerd-icons")
-      (if (require 'treemacs-all-the-icons-nerd-fonts nil 'noerror)
-          (treemacs-load-theme "all-the-icons-nerd-fonts")))
+      ;; (if (require 'treemacs-all-the-icons-nerd-fonts nil 'noerror)
+      ;;     (treemacs-load-theme "all-the-icons-nerd-fonts"))
+      )
 
     (treemacs-map-icons-with-auto-mode-alist
      '("CMakeLists.txt")

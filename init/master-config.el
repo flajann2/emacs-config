@@ -30,7 +30,7 @@
       (require-m 'line-numbers)
       (require-m 'highlighter)
       (require-m 'evil-company)
-      (require-m 'solarie-ext)
+      ;; (require-m 'solarie-ext)
       (require-m 'org-ext)
       (require-m 'org-pub)
       (require-m 'org-todo)
