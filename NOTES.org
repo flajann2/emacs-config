@@ -1,2 +1,3 @@
 * Notes
-  Notes? We don need no stinkin'notes.
+  + TODO: ⛔ Error (use-package): ellama/:catch: Unknown specializer llm-tool
+    TODO: get rid of this error. Apparently nothing in my code, but I still don't like it.

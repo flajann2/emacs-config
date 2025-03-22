@@ -3,6 +3,7 @@
 (global-set-key [(control f3)] 'highlight-symbol-at-point)
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [f2] 'highlight-symbol-prev)
+
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
 ;; Org to MD using pandoc
@@ -14,18 +15,12 @@
 
 ;; Moving buffers around
 (use-package buffer-move
-             :ensure t
-             :config
-                (global-set-key (kbd "<C-S-up>")     'buf-move-up)
-                (global-set-key (kbd "<C-S-down>")   'buf-move-down)
-                (global-set-key (kbd "<C-S-left>")   'buf-move-left)
-                (global-set-key (kbd "<C-S-right>")  'buf-move-right))
-
-;; Who you gonna blame FIXME
-;;; (use-package git-blame
-;;;              :ensure t
-;;;              :config
-;;;                 (global-set-key [C-S-mouse-1] 'git-blame-mode))
+  :ensure t
+  :config
+  (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+  (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+  (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+  (global-set-key (kbd "<C-S-right>")  'buf-move-right))
 
 ;; uppercase and lowercase
 (global-set-key [C-S-mouse-9] 'upcase-word)
@@ -40,12 +35,12 @@
 
 ;; Orgami
 (use-package origami
-             :ensure t
-             :config
-                (global-set-key (kbd "C-c C-f") 'origami-recursively-toggle-node)
-                (global-set-key (kbd "C-c C-F") 'origami-show-only-node)
-                (global-set-key (kbd "C-c C-u") 'origami-undo)
-                (global-set-key (kbd "C-c C-r") 'origami-redo))
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c C-f") 'origami-recursively-toggle-node)
+  (global-set-key (kbd "C-c C-F") 'origami-show-only-node)
+  (global-set-key (kbd "C-c C-u") 'origami-undo)
+  (global-set-key (kbd "C-c C-r") 'origami-redo))
 
 ;; json-reformat-region key bindings
 ;;(global-set-key (kbd "C-.") 'json-reformat-region)
@@ -75,11 +70,11 @@
 
 ;; clang-format
 (use-package clang-format
-             :ensure t
-             :config
-                (global-set-key (kbd "C-.") 'clang-format-buffer)
-                (global-set-key (kbd "C-,") 'clang-format-region)
-                (setq clang-format-style-option "file"))
+  :ensure t
+  :config
+  (global-set-key (kbd "C-.") 'clang-format-buffer)
+  (global-set-key (kbd "C-,") 'clang-format-region)
+  (setq clang-format-style-option "file"))
 
 ;; minimap toggle
 (global-set-key [?\s- ] 'minimap-mode)
@@ -99,8 +94,11 @@
 ;; load-file
 (global-set-key (kbd "C-c l") 'load-file)
 
-;; retart the lanhguage server
+;; restart the lanhguage server
 (global-set-key (kbd "C-c w") 'lsp-restart-workspace)
+
+;; font-lock-mode toggling for syntax coloring
+(global-set-key (kbd "C-c z") 'global-font-lock-mode)
 
 ;; no more file dialogs, damnit!
 ;; (setq use-file-dialog nil)

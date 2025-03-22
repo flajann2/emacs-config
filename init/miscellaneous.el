@@ -1,10 +1,3 @@
-;; Icicles Setup FIXME
-;;; (use-package icicles
-;;;              :ensure t
-;;;              :config
-;;;                 (icy-mode 1))
-
-
 ;; LaTeX (alles)
 ;; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
@@ -26,10 +19,6 @@
 (add-hook 'python-mode-hook
           (lambda () (setq forward-sexp-function nil)))
 
-;; Ansible
-;; (use-package company-ansible :ensure t)
-;; (add-to-list 'company-backends 'company-ansible)
-
 ;; dir locals
 (setq enable-dir-locals t)
 (set-variable 'enable-local-variables ())
@@ -37,9 +26,6 @@
 ;; Grab my bash functions and aliases
 (setq shell-file-name "/bin/bash")
 (setq shell-command-switch "-lc")
-
-;; C++ extra hilighting...FIXME
-;; (modern-c++-font-lock-global-mode t)
 
 ;; screen shot attachments
 (use-package org-attach-screenshot :ensure t)

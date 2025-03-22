@@ -218,11 +218,12 @@
                         treemacs-all-the-icons-nerd-fonts
                         treemacs-evil treesit-auto
                         ts-comint tss typescript-mode
-                        vterm vterm-toggle web-beautify
+                        vertico-posframe vterm
+                        vterm-toggle web-beautify
                         window-layout workgroups2
                         x-path-walker xenops xml+
                         yafolding yaml-mode yaml-tomato
-                        yard-mode
+                        yard-mode yasnippet
                         yasnippet-classic-snippets
                         zossima))
  '(python-guess-indent nil)

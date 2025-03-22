@@ -8,11 +8,10 @@
 ;; init graphical or command-line
 (require-m 'init-ext)
 (require-m 'global-keys)
-(require-m 'miscellaneous)
 (require-m 'elixir-macros)
 (require-m 'autosave-ext)
 (require-m 'spelling-checker)
-(require-m 'google-cstyle)
+;; (require-m 'google-cstyle)
 (require-m 'cff-ext)
 (require-m 'lua-ext)
 (require-m 'elm-ext)
@@ -21,12 +20,14 @@
 ;; (require-m 'truncate-ext)
 ;; (require-m 'spelling-ext)
 ;; (require-m 'annoying-patches)
+(require-m 'miscellaneous)
 (message "*** LOADING INIT Command-line CONFIGS COMPLETE ***")
 
 ;; init auf graphical
 (if (display-graphic-p)
     (progn
       (require-m 'treemacs-ext)
+      (require-m 'vertico-ext)
       (require-m 'line-numbers)
       (require-m 'highlighter)
       (require-m 'evil-company)
@@ -70,6 +71,7 @@
       ;; (require-m 'fish-setup)
       ;; (require-m 'gptel-ext)
       ;; (require 'haskell-ihp)
+      (require-m 'last-config) ;; must be the last.
       (message "*** LOADING INIT Graphical CONFIGS COMPLETE ***"))
   )
 

@@ -1,3 +1,6 @@
+;; TODO: this config is deprecated and may be deleted soon.
+;; TODO: use spelling-checker.el instead
+
 ;; if (aspell installed) { use aspell}
 ;; else if (hunspell installed) { use hunspell }
 ;; whatever spell checker I use, I always use English dictionary

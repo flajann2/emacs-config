@@ -26,10 +26,6 @@
                              (when (fboundp 'auto-dim-other-buffers-mode)
                                (auto-dim-other-buffers-mode t))))
 
-;; Yasnippit FIXME
-;;(use-package yasnippet :ensure t)
-;;(yas-global-mode 1)
-
 ;; Irony mode
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
@@ -47,11 +43,14 @@
 ;; FIXME
 ;;(use-package flycheck
 ;;  :init (global-flycheck-mode))
-
-(setq lsp-idle-delay 0.1
-      lsp-enable-symbol-highlighting t
-      lsp-enable-snippet t
-      lsp-prefer-flymake nil)
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  (setq lsp-idle-delay 0.1
+        lsp-enable-symbol-highlighting t
+        lsp-enable-snippet t
+        lsp-prefer-flymake nil))
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
