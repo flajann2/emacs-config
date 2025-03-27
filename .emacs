@@ -37,195 +37,27 @@
  '(menu-bar-mode nil)
  '(package-hidden-regexps '("\\`let-alist"))
  '(package-selected-packages
-   '(ac-haskell-process ac-ispell ac-math ace-flyspell
-                        activities adjust-parens ag
-                        alchemist
-                        all-the-icons-nerd-fonts
-                        ample-theme android-mode
-                        angular-snippets angularjs-mode
-                        annotate ansible ant
-                        anything-git-files
-                        anything-git-grep apib-mode
-                        auctex auctex-label-numbers
-                        auctex-latexmk auto-auto-indent
-                        auto-compile
-                        auto-complete-auctex
-                        auto-complete-c-headers
-                        auto-complete-clang
-                        auto-complete-clang-async
-                        auto-complete-nxml
-                        auto-dim-other-buffers
-                        auto-indent-mode auto-org-md
-                        auto-overlays auto-rename-tag
-                        auto-save-buffers-enhanced
-                        autodisass-java-bytecode
-                        autopair bash-completion
-                        blank-mode bm bog
-                        bracketed-paste
-                        browse-at-remote buffer-move
-                        bundler calfw-org cargo cdlatex
-                        centimacro cff cheat-sh cl
-                        clang-format cmake-font-lock
-                        cmake-ide cmake-mode
-                        cmake-project coin-ticker
-                        company-ansible company-ghc
-                        company-ghci company-inf-ruby
-                        company-solidity cpputils-cmake
-                        csv-mode cuda-mode dante dictcc
-                        diff-hl discover-my-major dkdo
-                        dockerfile-mode ebal ecb edts
-                        el-spec ellama elm-mode elmacro
-                        enh-ruby-mode epresent eproject
-                        evil evil-goggles evil-tex
-                        face-shift fish-completion
-                        fish-mode flycheck
-                        flycheck-clang-analyzer
-                        flycheck-clang-tidy
-                        flycheck-color-mode-line
-                        flycheck-credo
-                        flycheck-demjsonlint
-                        flycheck-dialyxir
-                        flycheck-golangci-lint
-                        flycheck-haskell
-                        flycheck-kotlin flycheck-mix
-                        flycheck-mode flycheck-package
-                        flymake-cppcheck flymake-go
-                        flymake-google-cpplint
-                        flymake-haml
-                        flymake-haskell-multi
-                        flymake-hlint flymake-json
-                        flymake-python-pyflakes
-                        flymake-ruby flymake-rust
-                        flymake-sass flymake-shell
-                        flymake-yaml
-                        flyspell-correct-popup
-                        flyspell-lazy flyspell-popup
-                        focus fold-dwim fold-this
-                        frame-restore fullscreen-mode
-                        german-holidays
-                        ghc-imported-from
-                        git-auto-commit-mode git-blame
-                        git-commit-mode git-dwim
-                        git-gutter git-rebase-mode
-                        git-timemachine gitignore-mode
-                        gnu-elpa-keyring-update
-                        gnus-desktop-notify go-complete
-                        go-direx go-dlv go-eldoc
-                        go-errcheck go-fill-struct
-                        go-guru go-imenu go-impl
-                        go-playground go-playground-cli
-                        go-projectile go-scratch golint
-                        gore-mode gorepl-mode goto-chg
-                        gptel haskell-cabal
-                        haskell-emacs
-                        haskell-emacs-base
-                        haskell-emacs-text
-                        haskell-interactive-mode
-                        haskell-process
-                        hasky-extensions hasky-stack
-                        helm-ag helm-google helm-ispell
-                        helm-jstack helm-rails helm-rb
-                        helm-rubygems-org hi2
-                        highlight-defined
-                        highlight-doxygen
-                        highlight-parentheses
-                        highlight-symbol hipster-theme
-                        hl-anything hl-todo
-                        hlint-refactor html-to-markdown
-                        humanoid-themes hyai icicles
-                        idle-highlight-in-visible-buffers-mode
-                        idle-org-agenda
-                        ido-completing-read+ iedit
-                        imenu+ indent-guide inf-elixir
-                        irony jabber java-imports
-                        java-snippets javadoc-lookup
-                        javaimp javap-mode jdecomp jdee
-                        json-mode json-reformat jtags
-                        kotlin-mode latex-extra
-                        latex-math-preview
-                        latex-pretty-symbols
-                        latex-preview-pane launch
-                        launch-mode list-utils
-                        llm-ollama lsp-clangd
-                        lsp-elixir lsp-go lsp-haskell
-                        lsp-java lsp-javacomp lsp-mode
-                        lsp-python lsp-ui lua-mode
-                        magic-latex-buffer magit
-                        magit-commit-mark magit-delta
-                        magit-file-icons
-                        magit-filenotify magit-lfs
-                        markdown-mode+ markdown-toc
-                        mc-extras mic-paren miniedit
-                        mix mkdown modern-cpp-font-lock
-                        motion-mode multi-compile
-                        nhexl-mode ninja-mode
-                        nix-buffer nix-env-install
-                        nix-haskell-mode nix-mode
-                        nix-modeline nix-sandbox
-                        nix-ts-mode nix-update
-                        nixpkgs-fmt noxml-fold
-                        ob-elixir ob-latex-as-png
-                        ob-nix ob-rust org-ac
-                        org-agenda-property
-                        org-attach-screenshot
-                        org-autolist org-beautify-theme
-                        org-bullets org-caldav
-                        org-cliplink
-                        org-clock-agenda-daytime-mode
-                        org-commentary org-dashboard
-                        org-download
-                        org-easy-img-insert
-                        org-edit-latex org-ehtml
-                        org-elp org-fstree org-gcal
-                        org-inline-pdf org-jekyll
-                        org-jira org-latex-impatient
-                        org-link-minor-mode
-                        org-nix-shell org-noter
-                        org-page org-pdfview
-                        org-projectile org-readme
-                        org-repo-todo org-side-tree
-                        org-superstar org-sync
-                        org-table-comment org-wc
-                        org-web-tools org-webpage
-                        org2jekyll org2web
-                        organize-imports-java
-                        orgtbl-ascii-plot origami
-                        ox-html5slide ox-mediawiki
-                        ox-pandoc paren-completer
-                        powerline powerline-evil
-                        pretty-sha-path preview-dvisvgm
-                        purescript-mode px python
-                        python-mode qml-mode racer
-                        rbenv realgud realgud-jdb
-                        rinari robe rspec-mode rubocop
-                        ruby-additional ruby-block
-                        ruby-dev ruby-electric ruby-end
-                        ruby-guard ruby-interpolation
-                        ruby-refactor ruby-tools
-                        rust-playground s sass-mode
-                        schlau-compile scratch-pop
-                        scss-mode shell-command shm
-                        slack slime slime-company
-                        slime-repl-ansi-color
-                        smart-compile smart-shift
-                        smartparens solaire-mode
-                        sotlisp spell-fu spinner
-                        stack-mode sublimity
-                        sublimity-map sublimity-scroll
-                        thread-dump tide timesheet
-                        toc-org toml-mode tool-bar+
-                        treemacs-all-the-icons
-                        treemacs-all-the-icons-nerd-fonts
-                        treemacs-evil treesit-auto
-                        ts-comint tss typescript-mode
-                        vertico-posframe vterm
-                        vterm-toggle web-beautify
-                        window-layout workgroups2
-                        x-path-walker xenops xml+
-                        yafolding yaml-mode yaml-tomato
-                        yard-mode yasnippet
-                        yasnippet-classic-snippets
-                        zossima))
+   '(ace-flyspell all-the-icons-nerd-fonts
+                  auto-save-buffers-enhanced bm
+                  bracketed-paste buffer-move cff
+                  clang-format cmake-mode company-ghci
+                  elixir-mode ellama elm-mode flycheck
+                  flymake-hlint flymake-json
+                  flymake-python-pyflakes flymake-ruby
+                  flymake-sass flymake-shell
+                  flymake-yaml focus handlebars-mode
+                  highlight-symbol hl-anything
+                  idle-highlight-in-visible-buffers-mode
+                  iedit indent-guide lsp-haskell
+                  magit-lfs mic-paren multiple-cursors
+                  mustache-mode org-attach-screenshot
+                  org-bullets org-superstar origami
+                  powerline purescript-mode smartparens
+                  sublimity toc-org treemacs-evil
+                  treesit-auto ts-comint
+                  typescript-mode vertico-posframe
+                  window-layout workgroups2 yafolding
+                  yasnippet))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)

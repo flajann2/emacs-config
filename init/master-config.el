@@ -33,7 +33,7 @@
       (require-m 'evil-company)
       ;; (require-m 'solarie-ext)
       (require-m 'org-ext)
-      (require-m 'org-pub)
+      ;; (require-m 'org-pub)
       (require-m 'org-todo)
       (require-m 'org-toc-ext)
       (require-m 'parens-ext)

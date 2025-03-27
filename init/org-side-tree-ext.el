@@ -2,9 +2,8 @@
 (use-package org-side-tree
   :ensure t
   :config
-  (add-hook 'emacs-lisp-mode-hook
-  (lambda () (setq-local outline-regexp ";;;\\(;* [^   \t\n]\\)")))
-  (add-hook 'emacs-lisp-mode-hook 'outline-minor-mode)
+  :hook (emacs-lisp-mode . (lambda () (setq-local outline-regexp ";;;\\(;* [^   \t\n]\\)")))
+  :hook (emacs-lisp-mode-hook . outline-minor-mode)
   )
 
 (provide 'org-side-tree-ext)

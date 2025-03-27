@@ -6,7 +6,6 @@
   ;; language you want ellama to translate to
   (setopt ellama-language "English")
   ;; could be llm-openai for example
-  (use-package llm-ollama :ensure t)
   (setopt ellama-provider
 	  (make-llm-ollama
 	   ;; this model should be pulled to use it

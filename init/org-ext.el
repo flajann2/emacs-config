@@ -1,7 +1,9 @@
 ;; Configuration of ORG Mode
 (use-package org
   :ensure t
-  :hook (org-mode . (lambda () (setq tab-width 8)))
+  :hook (org-mode . (lambda ()
+                      (setq indent-tabs-mode nil
+                            tab-width 2)))
   :config
   (setq org-list-demote-modify-bullet '(("+" . "→")))
   (setq org-hide-leading-stars t))
