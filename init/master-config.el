@@ -56,6 +56,7 @@
       (require-m 'color-focus-ext)
       (require-m 'clipboard-ext)
       (require-m 'ellama-ext)
+      (require-m 'ocaml-ext)
       ;; (require-m 'header-cpp)
       ;; (require-m 'ruby-ext) ;; something smells in this file
       ;; (require-m 'projectile-ext)

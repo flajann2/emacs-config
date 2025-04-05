@@ -20,6 +20,8 @@
 (defconst stackage "cd %G && stack build --copy-bins && stack test")
 (defconst hackage "cd %G && cabal build --enable-tests && cabal test")
 
+(defconst ocaml-make "cd %G && dune build")
+
 ;; npmrun requires that there is a package.json file to
 ;; coordinate things. This will run the build and start the
 ;; start the application.
@@ -95,6 +97,11 @@
 
        ;; LaTeX 
        (eval `'((latex-mode      . ,latex-file)))
+
+       ;; OCaml
+       (eval `'((dune-mode        . ,ocaml-make)))
+       (eval `'((tuareg-mode      . ,ocaml-make)))
+       (eval `'((tuareg-opam-mode . ,ocaml-make)))
        ))
 
 (global-set-key [f5]   'schlau-compile-compile)
