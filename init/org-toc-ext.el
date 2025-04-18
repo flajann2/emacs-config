@@ -6,9 +6,4 @@
     (add-to-list 'org-tag-alist '("TOC_5_gh" . ?T))
     (global-set-key (kbd "C-M-<tab>")  'toc-org-insert-toc))
 
-;; prettyfy headers
-(use-package org-superstar
-  :ensure t
-  :hook (org-mode . (lambda () (org-superstar-mode 1))))
-
 (provide 'org-toc-ext)

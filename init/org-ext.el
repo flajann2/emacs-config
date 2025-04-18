@@ -2,28 +2,19 @@
 (use-package org
   :ensure t
   :hook (org-mode . (lambda ()
-                      (setq indent-tabs-mode nil
-                            tab-width 2)))
+                      (setq-local indent-tabs-mode t
+                                  tab-width 8
+                                  org-cycle-max-level 90)))
   :config
   (setq org-list-demote-modify-bullet '(("+" . "→")))
   (setq org-hide-leading-stars t))
 
-(use-package org-bullets
+(use-package org-superstar
   :ensure t
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "◆" "◇" "✿"))
-  )
-
-;;; (use-package org-superstar
-;;;   :ensure t
-;;;   :config
-;;;     ;; This is usually the default, but keep in mind it must be nil
-;;;     (setq org-hide-leading-stars nil)
-;;;     ;; This line is necessary.
-;;;     (setq org-superstar-leading-bullet ?\s)
-;;;     ;; If you use Org Indent you also need to add this, otherwise the
-;;;     ;; above has no effect while Indent is enabled.
-;;;     (setq org-indent-mode-turns-on-hiding-stars nil))
+  :hook (org-mode . (lambda () (org-superstar-mode 1)))
+  :config
+    (setq org-hide-leading-stars nil)
+    (setq org-superstar-leading-bullet ?\s)
+    (setq org-indent-mode-turns-on-hiding-stars nil))
 
 (provide 'org-ext)

@@ -23,18 +23,12 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (use-package mustache-mode :ensure t)
 
-;; Tabwidth in general
+;; Tab width in general
 (setq tab-width 2)
+(setq-default indent-tabs-mode nil)
 
 ;; Handlebars
 (use-package handlebars-mode :ensure t)
-
-;; Force tabs to be spaces
-(add-hook 'after-change-major-mode-hook
-          '(lambda ()
-             (setq-default indent-tabs-mode nil)
-             (setq c-basic-indent 2)
-             (setq tab-width 2)))
 
 ;; Sublimity
 (use-package sublimity
@@ -48,6 +42,8 @@
 ;;(bash-completion-setup)
 
 ;; Auto modes
+;; TODO: should this not be handled elsewhere?
+;; TODO: move Ruby-related to the Ruby init, etc.
 (setq auto-mode-alist
       (append
        '(
