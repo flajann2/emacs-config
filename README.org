@@ -11,7 +11,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.0.7
+   3.0.0.8
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -36,14 +36,19 @@
     + Always use the tagged version for the "stable" versions.
       The latest can be pulled from master, but no gaurentees.
 *** Release notes
-    + 3.0.0.2 -- An overhaul is in progress to make everything use use-package.
-      You will no longer have to install dependencies by hand. Some functionality
-      is currently broken, like updating the Org TOC. It will
-      be addressed eventually.
+    + 3.0.0.2 -- An overhaul is in progress to make
+      everything use use-package.  You will no longer
+      have to install dependencies by hand. Some
+      functionality is currently broken, like updating
+      the Org TOC. It will be addressed eventually.
     + 3.0.0.4 -- bug fixes and tweaks. Ellama now works. C-c e ? for keyboard shortcuts
     + 3.0.0.5 -- paren mismatch caught
     + 3.0.0.6 -- Window Layout init cleanup
     + 3.0.0.7 -- toggle syntax hilighting with C-c z
+    + 3.0.0.8 -- Fixed isssues with Org Tab mode.
+      At issue here were some old cruft in init-el which
+      I had to eliminate. Also, only org-superstar is being used,
+      and the old defunct prettifier has been removed.
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you
