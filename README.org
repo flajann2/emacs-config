@@ -34,7 +34,7 @@
 ** Documentation
 *** Installation notes
     + Always use the tagged version for the "stable" versions.
-      The latest can be pulled from master, but no gaurentees.
+      The latest can be pulled from master, but no guarantees.
 *** Release notes
     + 3.0.0.2 -- An overhaul is in progress to make
       everything use use-package.  You will no longer
@@ -51,9 +51,10 @@
       and the old defunct prettifier has been removed.
     + 3.0.1.0 -- cleaned up the C++ support and added clangd LSP to
       it. You need to install clangd and semgrep-ls
-      | clangd    | (check your distro)  |
-      | semver-ls | pipx install semgrep |
-      Also, various cleanup.
+      | clangd                                | (check your distro)                   |
+      | semver-ls                             | pipx install semgrep                  |
+      | Add this early in your CMakeLists.txt | set(CMAKE_EXPORT_COMPILE_COMMANDS ON) |
+      Also, various cleanups.
 
 *** Organization
     The root of emacs-config contains the .emacs config that
