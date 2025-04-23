@@ -1,10 +1,10 @@
 ;;;;;; all sweet things CMake goes here
 
 ;;;; CMake Project
-;;;; (defun maybe-cmake-project-hook ()
-;;;;   (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
-;;;; (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
-;;;; (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
+(defun maybe-cmake-project-hook ()
+  (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
+(add-hook 'c-mode-hook 'maybe-cmake-project-hook)
+(add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
 
 ;;;; cpputils-cmake
 (add-hook 'c-mode-common-hook
@@ -23,30 +23,27 @@
 ;; No stinky makefiles for flymake
 (setq cppcm-write-flymake-makefile nil)
 
-;; flycheck clang
-(with-eval-after-load 'flycheck
-   (use-package flycheck-clang-analyzer :ensure t)
-   (flycheck-clang-analyzer-setup))
+;;; ;; flycheck clang
+;;; (with-eval-after-load 'flycheck
+;;;   (use-package flycheck-clang-analyzer
+;;;     :ensure t
+;;;     :config
+;;;     (flycheck-clang-analyzer-setup)))
 
-;;; ;; flycheck clang-tidy -- duplicate
-;;; (eval-after-load 'flycheck
-;;;   '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
-
-;; auto complete c++
-(ac-config-default)
-(use-package auto-complete-clang-async :ensure t)
+;; auto complete c++ FIXME
+;; (use-package auto-complete-clang-async :ensure t)
 
 (defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "~/.emacs.d/clang-complete")
-  (setq ac-sources '(ac-source-clang-async))
-  (ac-clang-launch-completion-process)
-)
+  (setq ac-clang-complete-executable "~/.emacs.d/clang-complete"
+        ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process))
 
-(defun my-ac-config ()
-  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
-
-(my-ac-config)
+;;; ;; FIX
+;;; (defun my-ac-config ()
+;;;   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+;;;   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+;;;   (global-auto-complete-mode t))
+;;; 
+;;; (my-ac-config)
 
 (provide 'cmake-omnibus)

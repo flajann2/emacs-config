@@ -3,7 +3,6 @@
   :config
   (global-treesit-auto-mode)
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (treesit-font-lock-level 4)
-  )
+  (treesit-font-lock-level 4))
 
 (provide 'treesit-ext)

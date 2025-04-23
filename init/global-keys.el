@@ -1,8 +1,10 @@
 ;; Highlight Symbol
-(use-package highlight-symbol :ensure t)
-(global-set-key [(control f3)] 'highlight-symbol-at-point)
-(global-set-key [f3] 'highlight-symbol-next)
-(global-set-key [f2] 'highlight-symbol-prev)
+(use-package highlight-symbol
+  :ensure t
+  :config
+  (global-set-key [(control f3)] 'highlight-symbol-at-point)
+  (global-set-key [f3] 'highlight-symbol-next)
+  (global-set-key [f2] 'highlight-symbol-prev))
 
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
@@ -27,11 +29,13 @@
 (global-set-key [C-S-mouse-8] 'downcase-word)
 
 ;; Multiple Cursors
-(use-package multiple-cursors :ensure t)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-c C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-all-like-this)
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-c C->")     'mc/mark-next-like-this)
+  (global-set-key (kbd "C-c C-<")     'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-<")         'mc/mark-all-like-this))
 
 ;; Orgami
 (use-package origami
@@ -44,7 +48,7 @@
 
 ;; json-reformat-region key bindings
 ;;(global-set-key (kbd "C-.") 'json-reformat-region)
-;;(global-set-key [mouse-8] 'json-reformat-region)
+;;(global-set-key [mouse-8]   'json-reformat-region)
 
 ;; Window splitting and unsplitting the easy way
 (global-set-key [mouse-8] 'split-window-vertically)

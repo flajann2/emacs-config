@@ -11,7 +11,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.0.8
+   3.0.1.0
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -49,10 +49,16 @@
       At issue here were some old cruft in init-el which
       I had to eliminate. Also, only org-superstar is being used,
       and the old defunct prettifier has been removed.
+    + 3.0.1.0 -- cleaned up the C++ support and added clangd LSP to
+      it. You need to install clangd and semgrep-ls
+      | clangd    | (check your distro)  |
+      | semver-ls | pipx install semgrep |
+      Also, various cleanup.
+
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you
-    do a soft link to this file in your home directory. 
+    do a soft link to this file in your home directory.
 
     You may want to merge your current .emacs file with this one
     to preserve your present settings.
@@ -68,8 +74,8 @@
 
    Schlau Compile really should be in the Melpa, but there
    were some issues with me putting it there since this is a
-   derivative work of Smart Compile. The functionality of 
-   Schlau Compile has diverged greately and the namespace 
+   derivative work of Smart Compile. The functionality of
+   Schlau Compile has diverged greately and the namespace
    changes that was needed to be made did not make it a good
    canidate for merging. So for all intents and purposes,
    this is a different project that stands alone.

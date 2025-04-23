@@ -1,6 +1,5 @@
 ;; files without an extention as c++ header
 ;; bacially, if they are located within a directory named 'include'
-(use-package cl :ensure t) ;; TODO -- deprecated, package no longer avail
 
 ;; (defun file-in-directory-list-p (file dirlist)
 ;;   "Returns true if the file specified is contained within one of
@@ -23,7 +22,7 @@
   "checks to see if buffer is nested inside a directory named 'include'
 TODO: Note that this may break on Windows."
   (member "include" (split-string (expand-file-name buffer-file-name) "/"))
-  )
+ )
 
 (add-to-list 'magic-fallback-mode-alist '(buffer-is-in-include-dir-p . c++-mode))
 

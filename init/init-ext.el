@@ -1,3 +1,8 @@
+;; themes
+(require 'package)
+(setq package-enable-at-startup nil)  ;; optional, if you do manual init
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 ;; due to the way we like to layout our screen, comments in OrgMode, etc. should be
 ;; thusly. Use meta-q to format.
 (setq-default fill-column 55)
@@ -37,10 +42,6 @@
                 (require 'sublimity-scroll)
                 (require 'sublimity-map))
 
-;; Bash FIXME
-;;(use-package 'bash-completion)
-;;(bash-completion-setup)
-
 ;; Auto modes
 ;; TODO: should this not be handled elsewhere?
 ;; TODO: move Ruby-related to the Ruby init, etc.
@@ -74,25 +75,27 @@
          )
        auto-mode-alist))
 
-;; CEDET and gdb integration
-(global-ede-mode 1)
-(use-package semantic/sb)
-(semantic-mode 1)
-(setq
- ;; use gdb-many-windows by default
- gdb-many-windows t
-
- ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
-
- ;; auto rescan to fix ruby problem
- imenu-auto-rescan t
- )
+;;; ;; CEDET and gdb integration
+;;; (global-ede-mode 1)
+;;; (use-package semantic/sb
+;;;   :ensure t
+;;;   :config
+;;;   (semantic-mode 1)
+;;; 
+;;;   (setq
+;;;    ;; use gdb-many-windows by default
+;;;    gdb-many-windows t
+;;; 
+;;;    ;; Non-nil means display source file containing the main routine at startup
+;;;    gdb-show-main t
+;;; 
+;;;    ;; auto rescan to fix ruby problem
+;;;    imenu-auto-rescan t))
 
 ;; diff-h1 FIXME
 ;;(global-diff-hl-mode)
 
-;; flymake
+;; flymake TODO: clean up
 (use-package flymake-ruby :ensure t)
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
@@ -109,19 +112,17 @@
 ;; Syntax checking
 (use-package flycheck
              :ensure t
-             :hook (flycheck-mode . flycheck-color-mode-line-mode)
+             ;; :hook (flycheck-mode . flycheck-color-mode-line-mode)
              )
 
 ;; JSON
-(use-package flymake-json :ensure t)
-(add-hook 'json-mode 'flymake-json-load)
+(use-package flymake-json
+  :ensure t
+  :hook (json-mode . flymake-json-load))
 
 ;; Automatically reload changed files.
 (global-auto-revert-mode t)
 (setq auto-revert-verbose nil)
-
-;; Goodbye annoying toolbar FIXME
-;;(tool-bar-pop-up-mode 1)
 
 ;; grab the shell's path
 ;; (exec-path-from-shell-initialize)
@@ -130,8 +131,10 @@
 ;; (highlight-doxygen-global-mode 1)
 
 ;; bracketed paste
-(use-package bracketed-paste :ensure t)
-(bracketed-paste-enable)
+(use-package bracketed-paste
+  :ensure t
+  :config
+  (bracketed-paste-enable))
 
 ;; assembly for C++ code at point
 ;; (use-package disaster)
@@ -139,9 +142,5 @@
 
 ;; global launch FIXME
 ;;(global-launch-mode +1)
-
-;; Pretty Org
-;; (use-package 'org-superstar)
-;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 (provide 'init-ext)
