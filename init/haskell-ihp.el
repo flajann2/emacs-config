@@ -1,8 +1,10 @@
 (use-package envrc
+  :ensure t
   :config
   (envrc-global-mode +1))
 
 (use-package eglot
+  :ensure t
   :config
   (add-hook 'haskell-mode-hook #'eglot-ensure)
   ;; Optionally add keybindings to some common functions:
@@ -25,6 +27,7 @@
 (server-start) ; for emacsclient / quick startup
 
 (use-package corfu
+  :ensure t
   ;; Optional customizations
   :custom
   (corfu-auto t)               ;; Enable auto completion
@@ -61,6 +64,7 @@
 
 ;; A few more useful configurations...
 (use-package emacs
+  :ensure t
   :custom
   ;; TAB cycle if there are only few candidates
   ;; (completion-cycle-threshold 3)
@@ -80,6 +84,7 @@
 
 ;; Use Dabbrev with Corfu!
 (use-package dabbrev
+  :ensure t
   ;; Swap M-/ and C-M-/
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand))
@@ -92,6 +97,7 @@
 
 ;; Optionally use the `orderless' completion style.
 (use-package orderless
+  :ensure t
   :custom
   ;; (orderless-style-dispatchers '(orderless-affix-dispatch))
   ;; (orderless-component-separator #'orderless-escapable-split-on-space)
@@ -114,4 +120,3 @@
 
 
 (provide 'haskell-ihp)
-

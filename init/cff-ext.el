@@ -33,21 +33,16 @@
 ;; clangd and lsp
 (use-package lsp-mode
   :ensure t
-  :hook ((c++-mode . lsp-deferred)
-         (c-mode   . lsp-deferred)
+  :hook ((c++-mode . lsp)
+         (c-mode   . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred)
+  :commands lsp 
   :config
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection '(:pipe ("clangd"
-                             "-j=4"  ;; Use 4 threads
-                             "--background-index"
-                             "--log=error"
-                             "--clang-tidy"
-                             "--enable-config"))
-    :major-modes '(c-mode c++-mode)
-    :server-id 'clangd))
+  (setq lsp-clients-clangd-args '("-j=4"
+                                  "--background-index"
+                                  "--log=error" 
+                                  "--clang-tidy"
+                                  "--enable-config"))
   ;; (setq lsp-prefer-flymake nil)
   )
 

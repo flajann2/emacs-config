@@ -101,8 +101,8 @@
 ;; restart the lanhguage server
 (global-set-key (kbd "C-c w") 'lsp-restart-workspace)
 
-;; font-lock-mode toggling for syntax coloring
-(global-set-key (kbd "C-c z") 'global-font-lock-mode)
+;; font-lock-mode for syntax coloring
+(global-set-key (kbd "C-c z") 'font-lock-fontify-buffer)
 
 ;; no more file dialogs, damnit!
 ;; (setq use-file-dialog nil)

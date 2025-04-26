@@ -47,7 +47,34 @@
  '(js-indent-level 2)
  '(menu-bar-mode nil)
  '(package-hidden-regexps '("\\`let-alist"))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(ace-flyspell adwaita-dark-theme
+                  all-the-icons-nerd-fonts
+                  auto-complete-clang-async
+                  auto-save-buffers-enhanced bm
+                  bracketed-paste buffer-move cff
+                  clang-format cmake-mode company-ghci
+                  corfu doom-themes dune dune-format
+                  elixir-mode ellama elm-mode envrc
+                  flycheck-clang-analyzer
+                  flycheck-ocaml flymake-hlint
+                  flymake-json flymake-python-pyflakes
+                  flymake-ruby flymake-sass
+                  flymake-shell flymake-yaml focus
+                  handlebars-mode highlight-symbol
+                  hl-anything
+                  idle-highlight-in-visible-buffers-mode
+                  iedit indent-guide lsp-haskell lsp-ui
+                  magit-lfs mic-paren multiple-cursors
+                  mustache-mode ocaml-eglot ocp-indent
+                  orderless org-attach-screenshot
+                  org-bullets org-superstar origami
+                  powerline purescript-mode smartparens
+                  solaire-mode sublimity toc-org
+                  treemacs-evil treesit-auto ts-comint
+                  typescript-mode utop vertico-posframe
+                  window-layout workgroups2 yafolding
+                  yasnippet))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)

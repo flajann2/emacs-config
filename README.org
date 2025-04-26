@@ -54,7 +54,15 @@
       | clangd                                | (check your distro)                   |
       | semver-ls                             | pipx install semgrep                  |
       | Add this early in your CMakeLists.txt | set(CMAKE_EXPORT_COMPILE_COMMANDS ON) |
-      Also, various cleanups.
+      Also, various cleanups, such as:
+      + fixed font-lock syntax hilighting problem
+	It appears to be a bug in Emacs' JIT, so
+	a workaround has been employed.
+      + Some issues with Haskell Language Server apparently
+	resolved, but I moved to the latest ghc and installed hlint,
+	as well as the latest HLS.
+      There are some remaining issues with LSP automatically
+      starting for C++ files, to be resolved shortly.
 
 *** Organization
     The root of emacs-config contains the .emacs config that

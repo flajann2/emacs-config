@@ -4,11 +4,13 @@
 ;; set up Haskell mode
 (use-package haskell-mode
   :ensure t
+  ;; :hook (haskell-mode . font-lock-fontify-buffer)
   :hook (haskell-mode . turn-on-haskell-doc-mode)
   :hook (haskell-mode . turn-on-haskell-indentation)
   :hook (haskell-mode . hlint-refactor-mode) 
   :hook (haskell-mode . intero-mode)
   :hook (haskell-mode . interactive-haskell-mode)
+  :hook (haskell-mode . flymake-haskell-enable)
   :init
   (add-to-list 'exec-path "~/.local/bin")
   :config
@@ -19,7 +21,22 @@
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-h") 'haskell-hoogle))
+  (define-key haskell-mode-map (kbd "C-h") 'haskell-hoogle)
+  (defun flymake-haskell-init ()
+    "Flymake init function for Haskell."
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy 'flymake-create-temp-inplace))
+           (local-file (file-relative-name temp-file (file-name-directory buffer-file-name))))
+      (list "hlint" (list local-file))))
+
+  (defun flymake-haskell-enable ()
+    "Enable flymake mode for Haskell."
+    (when (and buffer-file-name
+               (file-writable-p (file-name-directory buffer-file-name))
+               (file-writable-p buffer-file-name))
+      (local-set-key (kbd "C-c d") 'flymake-display-err-menu-for-current-line)
+      (flymake-mode t)))
+
+  (push '("\\.l?hs\\'" flymake-haskell-init) flymake-allowed-file-name-masks))
 
 ;; Repl setup code for Haskell.
 ;;; (use-package dante
@@ -49,20 +66,17 @@
   :ensure t
   :hook (haskell-mode . flymake-hlint-load))
 
+(use-package flymake-haskell-multi
+  :ensure t
+  :hook (haskell-mode . flymake-haskell-multi-load)
+  :config
+  (setq haskell-saved-check-command t))
+  
 ;; hasky stack integration
 ;; (global-set-key (kbd "<next>") nil)
 ;; (global-set-key (kbd "<f7> h e") #'hasky-stack-execute)
 ;; (global-set-key (kbd "<f7> h h") #'hasky-stack-package-action)
 ;; (global-set-key (kbd "<f7> h i") #'hasky-stack-new)
-
-
-;; TODO: We no longer need this, as we use Schlau-compile!
-;;; (use-package haskell-cabal
-;;;   :ensure t
-;;;   :config
-;;;   (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-ode-clear)
-;;;   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-;;;   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal))
 
 ;;; (require 'haskell-mode)
 ;;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
@@ -123,7 +137,7 @@
           ("->" . ?\u2192)      ; →
           ("<-" . ?\u2190)      ; ←
           ("=>" . ?\u21D2)      ; ⇒
-          ("map" . ?\u21A6)))    ; ↦
+          ("map" . ?\u21A6)))   ; ↦
   (prettify-symbols-mode 1))
 
 (add-hook 'haskell-mode-hook 'my-haskell-pretty-symbols) ; TODO Hook right
@@ -208,6 +222,7 @@
 (let ((my-cabal-path (expand-file-name "~/.ghcup/bin")))
   (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
   (add-to-list 'exec-path my-cabal-path))
+
 (custom-set-variables '(haskell-tags-on-save t))
 
 (provide 'haskell-ext)
