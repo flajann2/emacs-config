@@ -11,7 +11,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.1.0
+   3.0.2.0
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -63,7 +63,100 @@
 	as well as the latest HLS.
       There are some remaining issues with LSP automatically
       starting for C++ files, to be resolved shortly.
+    + 3.0.2.0 -- Haskell alignment tools for alignment of your Haskell code.
+      First, you highlight the region you wish to align. Then:
+      + align record fields (C-c :)
+        #BEGIN_SRC haskell
+	data Window = Window 
+           { address :: Text
+           , workspace :: Text
+           , at :: (Int, Int)
+           , size :: (Int, Int)
+           , title :: Text
+           , class_ :: Text
+           , floating :: Bool
+           } deriving (Show, Eq, Generic)
+        #END_SRC
+	
+	becomes
+	
+        #BEGIN_SRC haskell
+	data Window = Window 
+           { address   :: Text
+           , workspace :: Text
+           , at        :: (Int, Int)
+           , size      :: (Int, Int)
+           , title     :: Text
+           , class_    :: Text
+           , floating  :: Bool
+           } deriving (Show, Eq, Generic)
+        #END_SRC
+      + align initializers  (C-c =)
+        #BEGIN_SRC haskell
+        defaultConfig = LayoutConfig
+          { defaultLayout = "master"
+          , workspaceRules = []
+          , masterWidth = 0.6
+          , masterCount = 1
+          , gapSize = 8
+          , borderSize = 2
+          }
+        #END_SRC
 
+	becomes
+		
+        #BEGIN_SRC haskell
+        defaultConfig = LayoutConfig
+          { defaultLayout  = "master"
+          , workspaceRules = []
+          , masterWidth    = 0.6
+          , masterCount    = 1
+          , gapSize        = 8
+          , borderSize     = 2
+          }
+        #END_SRC
+      + align left arrows   (C-c <)
+        #BEGIN_SRC haskell
+        getHyprEventSocketPath = do
+          runtimeDir <- getEnv "XDG_RUNTIME_DIR"
+          instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
+          return $ runtimeDir ++ "/hypr/" ++ instanceSig ++ "/.socket2.sock"
+        #END_SRC
+
+	becomes
+		
+        #BEGIN_SRC haskell
+        getHyprEventSocketPath = do
+          runtimeDir  <- getEnv "XDG_RUNTIME_DIR"
+          instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
+          return $ runtimeDir ++ "/hypr/" ++ instanceSig ++ "/.socket2.sock"
+        #END_SRC
+      + align right arrows  (C-c >)
+        #BEGIN_SRC haskell
+        getActiveMonitor = do
+          response <- hyprlandCommand "j/monitors"
+          case response of
+            Nothing -> return 0
+            Just json -> do
+              let monitors = fromMaybe [] (decode $ BL.pack $ T.unpack json) :: [Monitor]
+              return $ fromMaybe 0 $ listToMaybe [mon_id m | m <- monitors]
+        #END_SRC
+
+	becomes
+		
+        #BEGIN_SRC haskell
+        getActiveMonitor = do
+          response <- hyprlandCommand "j/monitors"
+          case response of
+            Nothing   -> return 0
+            Just json -> do
+              let monitors = fromMaybe [] (decode $ BL.pack $ T.unpack json) :: [Monitor]
+              return $ fromMaybe 0 $ listToMaybe [mon_id m | m <- monitors]
+        #END_SRC
+      TODO: Later, I may combine all the above into one operation. But
+      TODO: I have to make sure that there is no possibility of doing something
+      TODO: unwanted. So, as they say, digression is the better part
+      TODO: of valor. Or something like that.
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you

@@ -69,8 +69,8 @@
 ;; experimental FIXME the hooks should work!!!!
 (fset 'epry [kp-home return up tab ?r ?e ?q ?u ?i ?r ?e ?  ?I ?E ?x ?\; ?  ?I ?E ?x ?. ?p ?r ?y ?  ?# ?D ?E ?B ?U ?G ?G ?I ?N ?G  tab kp-home])
 (fset 'eunpry [?\C-s ?# ?D ?E ?B ?U ?G ?G ?I ?N ?G kp-home ?\C-k ?\C-k])
-(global-set-key (kbd "C-c C-a") 'epry)
-(global-set-key (kbd "C-c a") 'eunpry)
+;; (global-set-key (kbd "C-c C-a") 'epry)
+;; (global-set-key (kbd "C-c a") 'eunpry)
 
 ;; clang-format
 (use-package clang-format
