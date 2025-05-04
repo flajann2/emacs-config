@@ -66,7 +66,7 @@
     + 3.0.2.0 -- Haskell alignment tools for alignment of your Haskell code.
       First, you highlight the region you wish to align. Then:
       + align record fields (C-c :)
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
 	data Window = Window 
            { address :: Text
            , workspace :: Text
@@ -76,11 +76,11 @@
            , class_ :: Text
            , floating :: Bool
            } deriving (Show, Eq, Generic)
-        #END_SRC
+        #+END_SRC
 	
 	becomes
 	
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
 	data Window = Window 
            { address   :: Text
            , workspace :: Text
@@ -90,9 +90,9 @@
            , class_    :: Text
            , floating  :: Bool
            } deriving (Show, Eq, Generic)
-        #END_SRC
+        #+END_SRC
       + align initializers  (C-c =)
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         defaultConfig = LayoutConfig
           { defaultLayout = "master"
           , workspaceRules = []
@@ -101,11 +101,11 @@
           , gapSize = 8
           , borderSize = 2
           }
-        #END_SRC
+        #+END_SRC
 
 	becomes
 		
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         defaultConfig = LayoutConfig
           { defaultLayout  = "master"
           , workspaceRules = []
@@ -114,25 +114,25 @@
           , gapSize        = 8
           , borderSize     = 2
           }
-        #END_SRC
+        #+END_SRC
       + align left arrows   (C-c <)
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         getHyprEventSocketPath = do
           runtimeDir <- getEnv "XDG_RUNTIME_DIR"
           instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
           return $ runtimeDir ++ "/hypr/" ++ instanceSig ++ "/.socket2.sock"
-        #END_SRC
+        #+END_SRC
 
 	becomes
 		
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         getHyprEventSocketPath = do
           runtimeDir  <- getEnv "XDG_RUNTIME_DIR"
           instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
           return $ runtimeDir ++ "/hypr/" ++ instanceSig ++ "/.socket2.sock"
-        #END_SRC
+        #+END_SRC
       + align right arrows  (C-c >)
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         getActiveMonitor = do
           response <- hyprlandCommand "j/monitors"
           case response of
@@ -140,11 +140,11 @@
             Just json -> do
               let monitors = fromMaybe [] (decode $ BL.pack $ T.unpack json) :: [Monitor]
               return $ fromMaybe 0 $ listToMaybe [mon_id m | m <- monitors]
-        #END_SRC
+        #+END_SRC
 
 	becomes
 		
-        #BEGIN_SRC haskell
+        #+BEGIN_SRC haskell
         getActiveMonitor = do
           response <- hyprlandCommand "j/monitors"
           case response of
@@ -152,7 +152,7 @@
             Just json -> do
               let monitors = fromMaybe [] (decode $ BL.pack $ T.unpack json) :: [Monitor]
               return $ fromMaybe 0 $ listToMaybe [mon_id m | m <- monitors]
-        #END_SRC
+        #+END_SRC
       TODO: Later, I may combine all the above into one operation. But
       TODO: I have to make sure that there is no possibility of doing something
       TODO: unwanted. So, as they say, digression is the better part
