@@ -76,11 +76,9 @@
            , class_ :: Text
            , floating :: Bool
            } deriving (Show, Eq, Generic)
-        #+END_SRC
 	
-	becomes
+	-- becomes
 	
-        #+BEGIN_SRC haskell
 	data Window = Window 
            { address   :: Text
            , workspace :: Text
