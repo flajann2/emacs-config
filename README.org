@@ -99,11 +99,9 @@
           , gapSize = 8
           , borderSize = 2
           }
-        #+END_SRC
 
-	becomes
+	-- becomes
 		
-        #+BEGIN_SRC haskell
         defaultConfig = LayoutConfig
           { defaultLayout  = "master"
           , workspaceRules = []
@@ -119,11 +117,9 @@
           runtimeDir <- getEnv "XDG_RUNTIME_DIR"
           instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
           return $ runtimeDir ++ "/hypr/" ++ instanceSig ++ "/.socket2.sock"
-        #+END_SRC
 
-	becomes
+	-- becomes
 		
-        #+BEGIN_SRC haskell
         getHyprEventSocketPath = do
           runtimeDir  <- getEnv "XDG_RUNTIME_DIR"
           instanceSig <- getEnv "HYPRLAND_INSTANCE_SIGNATURE"
@@ -138,11 +134,9 @@
             Just json -> do
               let monitors = fromMaybe [] (decode $ BL.pack $ T.unpack json) :: [Monitor]
               return $ fromMaybe 0 $ listToMaybe [mon_id m | m <- monitors]
-        #+END_SRC
 
-	becomes
+	-- becomes
 		
-        #+BEGIN_SRC haskell
         getActiveMonitor = do
           response <- hyprlandCommand "j/monitors"
           case response of
