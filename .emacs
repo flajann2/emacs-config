@@ -54,15 +54,16 @@
                   auto-save-buffers-enhanced bm
                   bracketed-paste buffer-move cff
                   clang-format cmake-mode company-ghci
-                  corfu doom-themes dune dune-format
-                  elixir-mode ellama elm-mode envrc
+                  corfu dap-mode doom-themes dune
+                  dune-format elixir-mode ellama
+                  elm-mode envrc fish-mode
                   flycheck-clang-analyzer
-                  flycheck-ocaml flymake-hlint
-                  flymake-json flymake-python-pyflakes
-                  flymake-ruby flymake-sass
-                  flymake-shell flymake-yaml focus
-                  handlebars-mode highlight-symbol
-                  hl-anything
+                  flycheck-haskell flycheck-ocaml
+                  flymake-hlint flymake-json
+                  flymake-python-pyflakes flymake-ruby
+                  flymake-sass flymake-shell
+                  flymake-yaml focus handlebars-mode
+                  highlight-symbol hl-anything
                   idle-highlight-in-visible-buffers-mode
                   iedit indent-guide lsp-haskell lsp-ui
                   magit-lfs mic-paren multiple-cursors

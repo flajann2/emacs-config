@@ -41,6 +41,7 @@
       ;; (require-m 'treesit-ext)
       (require-m 'haskell-ext)
       (require-m 'haskell-alignment)
+      (require-m 'haskell-debugging)
       (require-m 'purescript-ext)
       (require-m 'bookmarks)
       (require-m 'compilation-ext)
