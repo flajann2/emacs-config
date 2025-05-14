@@ -43,6 +43,7 @@
                                   "--log=error" 
                                   "--clang-tidy"
                                   "--enable-config"))
+  (setq lsp-completion-enable-additional-text-edit nil)
   ;; (setq lsp-prefer-flymake nil)
   )
 
@@ -82,5 +83,8 @@
 
 ;; recognize cppm in c++ mode
 (add-to-list 'auto-mode-alist '("\\.cppm\\'" . c++-mode))
+
+;; for C++ mode, this does not kick in automatically yet.
+(global-set-key [pause] 'lsp)
 
 (provide 'cff-ext)

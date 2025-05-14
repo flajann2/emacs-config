@@ -54,7 +54,7 @@
                   auto-save-buffers-enhanced bm
                   bracketed-paste buffer-move cff
                   clang-format cmake-mode company-ghci
-                  corfu dap-mode doom-themes dune
+                  corfu dap-mode dape doom-themes dune
                   dune-format elixir-mode ellama
                   elm-mode envrc fish-mode
                   flycheck-clang-analyzer
