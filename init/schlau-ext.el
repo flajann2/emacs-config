@@ -43,7 +43,7 @@
 (defconst elm-npmi "cd %G && npm run build && npm run interactive")
 
 ;; LaTeX to PDF
-(defconst latex-file "cd %G && mkdir -p output pdf && pdflatex -output-directory=./output %F && cp ./output/%n.pdf ./pdf")
+(defconst latex-file "cd %G && mkdir -p output pdf && pdflatex -shell-escape -output-directory=./output %F && cp ./output/%n.pdf ./pdf")
 
 (setq schlau-compile-alist
       (append

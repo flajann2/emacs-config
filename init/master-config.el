@@ -48,6 +48,7 @@
       (require-m 'auto-dim-ext)
       (require-m 'folding-ext)
       (require-m 'idle-hilight-ext) ;; idle hightlighting
+      (require-m 'latex-ext)
       (require-m 'schlau-ext)
       (require-m 'pretty)
       (require-m 'fish-ext)

@@ -71,7 +71,7 @@
                   orderless org-attach-screenshot
                   org-bullets org-superstar origami
                   powerline purescript-mode smartparens
-                  solaire-mode sublimity toc-org
+                  solaire-mode sublimity tex toc-org
                   treemacs-evil treesit-auto ts-comint
                   typescript-mode utop vertico-posframe
                   window-layout workgroups2 yafolding
