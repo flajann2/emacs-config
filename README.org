@@ -55,6 +55,7 @@ done
         to wl-copy. Some browsers like Brave may still send the clipboard
 	to xclip despite its configuration.
 *** Release notes
+    (Versions are descending.)
     + 3.0.0.2 -- An overhaul is in progress to make
       everything use use-package.  You will no longer
       have to install dependencies by hand. Some
