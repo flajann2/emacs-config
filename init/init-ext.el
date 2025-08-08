@@ -3,6 +3,50 @@
 (setq package-enable-at-startup nil)  ;; optional, if you do manual init
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;;; ;; BEGIN native compilation -- Enable native compilation for all Elisp code
+;;; (when (and (fboundp 'native-comp-available-p)
+;;;     (message "Native compilation is available")
+;;;     (native-comp-available-p))
+;;;   ;; Set native compilation settings
+;;;   (setq native-comp-async-report-warnings-errors nil) ; Disable warnings
+;;;   (setq native-comp-deferred-compilation t)           ; Enable deferred compilation
+;;;   (setq package-native-compile t)                     ; Compile packages natively
+;;;   
+;;;   ;; Optimize native compilation
+;;;   (setq native-comp-speed 2)                          ; Optimization level (0-3)
+;;;   (setq native-comp-debug 0)                          ; Debug level (0-3)
+;;;   
+;;;   ;; Compile init file natively
+;;;   (add-hook 'emacs-startup-hook
+;;;             (lambda ()
+;;;               (when (and (file-exists-p user-init-file)
+;;;                          (not (file-exists-p (concat user-init-file ".eln"))))
+;;;                 (native-compile-async user-init-file)))))
+;;; ;; Check the native compilation directory
+;;; (when (boundp 'native-comp-eln-load-path)
+;;;   (message "Native compilation directory: %s" (car native-comp-eln-load-path)))
+;;; ;; Add this to force recompilation of all packages
+;;; (setq comp-deferred-compilation t)
+;;; 
+;;; ;; Function to compile all packages
+;;; (defun my/native-compile-packages ()
+;;;   "Native compile all installed packages."
+;;;   (interactive)
+;;;   (when (native-comp-available-p)
+;;;     (dolist (dir (directory-files package-user-dir t "^[^.]"))
+;;;       (when (file-directory-p dir)
+;;;         (native-compile-async dir 'recursively)))))
+;;; 
+;;; (setq use-package-always-ensure t)
+;;; (setq use-package-compute-statistics t)
+;;; (setq use-package-always-defer t)
+;;; 
+;;; ;; Ensure native compilation for use-package
+;;; (when (native-comp-available-p)
+;;;     (setq package-native-compile t)
+;;;     (my/native-compile-packages))
+;;; ;; END native compilation
+
 ;; due to the way we like to layout our screen, comments in OrgMode, etc. should be
 ;; thusly. Use meta-q to format.
 (setq-default fill-column 55)

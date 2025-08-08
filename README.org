@@ -35,6 +35,25 @@
 *** Installation notes
     + Always use the tagged version for the "stable" versions.
       The latest can be pulled from master, but no guarantees.
+    + As of now, Emacs users on Wayland should be using emacs-wayland,
+      and have your consoles configured to use wl-copy and wl-paste
+      + You may should have the following script to automatically run
+	in your Hyprland / Sway environment:
+
+#+begin_src sh
+#!/bin/sh
+# Sync clipboard from X11 to Wayland
+while true; do
+  # Wait for clipboard change notification (requires clipnotify)
+  clipnotify
+  # On change, copy X11 clipboard content to Wayland clipboard
+  xclip -o -selection clipboard | wl-copy
+done
+#+end_src
+
+        This will ensure that anything still using xclip will be sent
+        to wl-copy. Some browsers like Brave may still send the clipboard
+	to xclip despite its configuration.
 *** Release notes
     + 3.0.0.2 -- An overhaul is in progress to make
       everything use use-package.  You will no longer
@@ -149,6 +168,8 @@
       TODO: I have to make sure that there is no possibility of doing something
       TODO: unwanted. So, as they say, digression is the better part
       TODO: of valor. Or something like that.
+    + 3.0.2.1 -- Clipboard issues for Wayland (see installation notes)
+      
 *** Organization
     The root of emacs-config contains the .emacs config that
     emacs normally looks for. It is strongly recommended that you

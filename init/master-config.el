@@ -74,6 +74,7 @@
       ;; (require-m 'fish-setup)
       ;; (require-m 'gptel-ext)
       ;; (require 'haskell-ihp)
+      (require-m 'scala-ext)
       (require-m 'last-config) ;; must be the last.
       (message "*** LOADING INIT Graphical CONFIGS COMPLETE ***"))
   )

@@ -74,4 +74,3 @@
 
 ;; load the master config to complete emacs's configuration
 (require 'master-config)
-(put 'erase-buffer 'disabled nil)
