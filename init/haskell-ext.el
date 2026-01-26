@@ -153,4 +153,10 @@
 
 (custom-set-variables '(haskell-tags-on-save t))
 
+;; so we can hover and see goodness
+(setq lsp-ui-doc-enable t
+      lsp-ui-doc-show-with-cursor t
+      lsp-ui-doc-show-with-mouse t
+      lsp-ui-doc-position 'at-point)
+
 (provide 'haskell-ext)

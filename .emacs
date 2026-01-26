@@ -45,6 +45,7 @@
      "blue" "black" "gray7"))
  '(initial-frame-alist '((fullscreen . maximized)))
  '(js-indent-level 2)
+ '(lsp-ui-doc-enable t)
  '(menu-bar-mode nil)
  '(package-hidden-regexps '("\\`let-alist"))
  '(package-selected-packages nil)
