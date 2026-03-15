@@ -14,7 +14,13 @@
 (defconst elixirrel  "cd %G && LC_ALL=en_GB.UTF-8 mix escript.build && mix release --override")
 (defconst javamake "cd %G && ./mvnw package exec:java && ./mvnw test")
 (defconst kotlinmake "cd %G && ./mvnw package exec:java && ./mvnw test")
-(defconst pythonrun "cd %G && pipenv install -e . && pipenv run python3 setup.py build && pipenv run python3 -m unittest discover -s tests")
+
+;; for older python projects
+(defconst pythonrunold "cd %G && pipenv install -e . && pipenv run python3 setup.py build && pipenv run python3 -m unittest discover -s tests")
+
+;; for more modern projects using uv
+(defconst pythonrun "cd %G && uv sync && uv run pytest")
+
 (defconst patentex "cd %G && ./compile.fish")
 
 (defconst stackage "cd %G && stack build --copy-bins && stack test")
@@ -79,7 +85,13 @@
        (eval `'((kotlin-mode     . ,kotlinmake)))
 
        ;; Python building and testing
+       (eval `'((python-ts-mode  . ,pythonrun)))
+
+       ;; Python building and testing
        (eval `'((python-mode     . ,pythonrun)))
+
+       ;; Python toml mode
+       (eval `'((toml-ts-mode     . ,pythonrun)))
 
        ;; LaTeX to PDF generation (NO WORKIE)
        ;;; (eval `'((LaTeX-mode      . ,patentex)))

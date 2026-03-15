@@ -98,7 +98,7 @@
 ;; load-file
 (global-set-key (kbd "C-c l") 'load-file)
 
-;; restart the lanhguage server
+;; restart the language server
 (global-set-key (kbd "C-c w") 'lsp-restart-workspace)
 
 ;; font-lock-mode for syntax coloring

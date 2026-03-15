@@ -42,6 +42,7 @@
       (require-m 'haskell-ext)
       (require-m 'haskell-alignment)
       (require-m 'haskell-debugging)
+      (require-m 'python-ext)
       (require-m 'purescript-ext)
       (require-m 'bookmarks)
       (require-m 'compilation-ext)
