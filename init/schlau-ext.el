@@ -7,12 +7,12 @@
 (defconst cppclang "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
 ;;; (defconst cppninja "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
 ;;; (defconst cppmake  "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && make")
-(defconst rustmake "export RUST_BACKTRACE=full && ~/.cargo/bin/cargo build && ~/.cargo/bin/cargo test -- --nocapture")
-(defconst rubymake "rake build")
-(defconst gomake  "export GOPATH=/development/go && go install ./... && go test -v && go vet")
+(defconst rustmake   "export RUST_BACKTRACE=full && ~/.cargo/bin/cargo build && ~/.cargo/bin/cargo test -- --nocapture")
+(defconst rubymake   "rake build")
+(defconst gomake     "cd %G && go mod tidy && go build && go test -v && go vet")
 (defconst elixirmake "cd %G && LC_ALL=en_GB.UTF-8 mix escript.build")
 (defconst elixirrel  "cd %G && LC_ALL=en_GB.UTF-8 mix escript.build && mix release --override")
-(defconst javamake "cd %G && ./mvnw package exec:java && ./mvnw test")
+(defconst javamake   "cd %G && ./mvnw package exec:java && ./mvnw test")
 (defconst kotlinmake "cd %G && ./mvnw package exec:java && ./mvnw test")
 
 ;; for older python projects
@@ -54,7 +54,8 @@
 (setq schlau-compile-alist
       (append
        ;; compile Go
-       (eval `'((go-mode . ,gomake)))
+       (eval `'((go-mode    . ,gomake)))
+       (eval `'((go-ts-mode . ,gomake)))
 
        ;; compile C++
        (eval `'((cmake-mode  . ,cppclang)))

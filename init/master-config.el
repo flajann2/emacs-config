@@ -64,7 +64,7 @@
       (require-m 'header-cpp)
       ;; (require-m 'ruby-ext) ;; something smells in this file
       ;; (require-m 'projectile-ext)
-      ;; (require-m 'go-ext)
+      (require-m 'go-ext)
       (require-m 'whitespace-cleanup)
       ;; (require-m 'ruby-electric)
       ;; (require-m 'spaces-ext)
@@ -76,6 +76,7 @@
       ;; (require-m 'gptel-ext)
       ;; (require 'haskell-ihp)
       (require-m 'scala-ext)
+      (require-m 'grok-ext)
       (require-m 'last-config) ;; must be the last.
       (message "*** LOADING INIT Graphical CONFIGS COMPLETE ***"))
   )

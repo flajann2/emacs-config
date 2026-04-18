@@ -1,5 +1,7 @@
 ;; Treemacs configuration
 
+(setq native-comp-deferred-compilation-deny-list '("treemacs"))
+
 (use-package treemacs
   :ensure t
   :config
