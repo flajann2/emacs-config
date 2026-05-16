@@ -20,4 +20,4 @@
   (global-set-key (kbd "C-c g") #'gptel)
   (global-set-key (kbd "C-c r") #'gptel-rewrite)
   )
-(package 'grok-ext)
+(provide 'grok-ext)

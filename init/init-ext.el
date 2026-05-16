@@ -1,8 +1,4 @@
-;; themes
-(require 'package)
-(setq package-enable-at-startup nil)  ;; optional, if you do manual init
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
+;;; === PACKAGE SETUP - MUST BE FIRST ===
 ;;; ;; BEGIN native compilation -- Enable native compilation for all Elisp code
 ;;; (when (and (fboundp 'native-comp-available-p)
 ;;;     (message "Native compilation is available")

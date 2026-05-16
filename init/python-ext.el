@@ -1,9 +1,5 @@
 ;; Python integration
 
-;; ── Package bootstrap (MELPA) ────────────────────────────────────────────────
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
 (unless package-archive-contents (package-refresh-contents))
 
 ;; ── Tree-sitter: use python-ts-mode instead of python-mode ───────────────────

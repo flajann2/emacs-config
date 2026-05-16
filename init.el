@@ -1,9 +1,8 @@
 ;; Add MELPA to the archives
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-
-(package-initialize)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(package-initialize)   ; ← ONLY this call, at the very top
 
 (setq vc-handled-backends nil)
 (custom-set-variables
