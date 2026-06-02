@@ -1,4 +1,5 @@
 ;; Org TODOs Keybindings
+(global-set-key (kbd "C-<f12>") (lambda () (interactive) (org-agenda nil "n")))
 (global-set-key (kbd "C-;") 'ort/capture-todo)
 (global-set-key (kbd "C-'") 'ort/capture-checkitem)
 (global-set-key (kbd "C-`") 'ort/goto-todos)

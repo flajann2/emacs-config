@@ -47,6 +47,7 @@
  '(js-indent-level 2)
  '(lsp-ui-doc-enable t)
  '(menu-bar-mode nil)
+ '(org-agenda-files '("/development/dangerous-ideas/oma/nextwave.org"))
  '(package-hidden-regexps '("\\`let-alist"))
  '(package-selected-packages nil)
  '(python-guess-indent nil)

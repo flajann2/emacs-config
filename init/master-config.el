@@ -36,6 +36,7 @@
       ;; (require-m 'org-pub)
       (require-m 'org-todo)
       (require-m 'org-toc-ext)
+      ;; (require-m 'org-agenda-ext)
       (require-m 'parens-ext)
       (require-m 'irc-ext)
       ;; (require-m 'treesit-ext)
