@@ -1,4 +1,4 @@
-;; Org TODOs Keybindings
+;;;; Org TODOs Keybindings
 (global-set-key (kbd "C-<f12>") (lambda () (interactive) (org-agenda nil "n")))
 (global-set-key (kbd "C-;") 'ort/capture-todo)
 (global-set-key (kbd "C-'") 'ort/capture-checkitem)
@@ -9,12 +9,12 @@
 (defun org-snap-me ()
   "put me in org mode"
   (interactive)
-  (treemacs-do-switch-workspace "Docler")
+  (treemacs-do-switch-workspace "NextWave")
   (org-agenda))
 
 (global-set-key (kbd "C-= a") 'org-snap-me)
 
-;; Org timeline
+;;;; Org timeline
 (add-hook 'org-load-hook
   (lambda ()
     (setq org-agenda-custom-commands
@@ -30,13 +30,13 @@
          (org-agenda-span 22)
          (org-agenda-prefix-format '((agenda . " %1c %?-12t% s")))))))))))
 
-;; TODO Keyword sttes
+;;;; TODO Keyword sttes
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WORKING(w)" "REPORT(r)" "|" "DONE(d)")
         (sequence "|" "MOTHBALLED(m)")
         ))
 
-;; Archive handling
+;;;; Archive handling
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
@@ -87,5 +87,34 @@
               ("PHONE" :foreground "forest green" :weight bold))))
 (setq-default org-export-with-todo-keywords nil)
 (setq-default org-enforce-todo-dependencies t)
+
+;;;; duplicate current header when you hit return
+(defvar org-return-duplicates-headline nil
+  "When non-nil, pressing RET on a headline will duplicate it.")
+
+(defun org-return-duplicate-headline ()
+  "Duplicate headline on RET if the feature is enabled."
+  (interactive)
+  (if (and org-return-duplicates-headline
+           (org-at-heading-p))
+      (let ((headline (org-get-heading t t)))
+        (end-of-line)
+        (open-line 1)
+        (forward-line 1)
+        (insert "* " headline))
+    (org-return)))
+
+(defun org-toggle-duplicate-on-ret ()
+  "Toggle whether RET duplicates headlines."
+  (interactive)
+  (setq org-return-duplicates-headline (not org-return-duplicates-headline))
+  (message "RET duplicates headline: %s" 
+           (if org-return-duplicates-headline "ON" "OFF")))
+
+;; Bind the toggle
+(global-set-key (kbd "C-c x") 'org-toggle-duplicate-on-ret)
+
+;; Bind the smart return key
+(define-key org-mode-map (kbd "RET") 'org-return-duplicate-headline)
 
 (provide 'org-todo)

@@ -59,5 +59,13 @@
 ;;  (setq company-minimum-prefix-length 1)
 ;;  (global-company-mode 1))
 
+;; update all packages with C-c u
+(defun update-all-packages ()
+  "Refresh and upgrade all packages."
+  (interactive)
+  (package-refresh-contents)
+  (package-upgrade-all))
+
+(global-set-key (kbd "C-c u") 'update-all-packages)
 (provide 'miscellaneous)
 ;;; miscellaneous.el ends here
