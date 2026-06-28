@@ -1,5 +1,11 @@
 ;;;; Org TODOs Keybindings
-(require 'org)
+(use-package org
+    :ensure t
+    :bind (("C-c a" . org-agenda)
+           ("C-c c" . org-capture)
+           :config
+           (require 'org-tempo)))
+
 (global-set-key (kbd "C-<f12>") (lambda () (interactive) (org-agenda nil "n")))
 (global-set-key (kbd "C-;") 'ort/capture-todo)
 (global-set-key (kbd "C-'") 'ort/capture-checkitem)
