@@ -1,9 +1,10 @@
 ;;;; Org TODOs Keybindings
+(require 'org)
 (global-set-key (kbd "C-<f12>") (lambda () (interactive) (org-agenda nil "n")))
 (global-set-key (kbd "C-;") 'ort/capture-todo)
 (global-set-key (kbd "C-'") 'ort/capture-checkitem)
 (global-set-key (kbd "C-`") 'ort/goto-todos)
-
+(define-key org-mode-map (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-= t") 'org-time-stamp)
 
 (defun org-snap-me ()

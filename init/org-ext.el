@@ -17,4 +17,25 @@
     (setq org-superstar-leading-bullet ?\s)
     (setq org-indent-mode-turns-on-hiding-stars nil))
 
+
+(use-package org-tempo
+    :ensure t
+    :config
+    ;; Force italic face to actually use slant
+    (set-face-attribute 'italic nil :slant 'italic)
+    (set-face-attribute 'org-italic nil :slant 'italic)
+    )
+
+(setq org-hide-emphasis-markers t)
+
+;; Mermaid for block diagrams
+(use-package ob-mermaid
+  :ensure t
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((mermaid . t))))
+;; Optional: tell Emacs where mmdc is (usually not needed)
+;; (setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
+
 (provide 'org-ext)
