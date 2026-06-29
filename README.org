@@ -11,7 +11,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.2.0
+   3.0.3.0
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -56,6 +56,7 @@ done
 	to xclip despite its configuration.
 *** Release notes
     (Versions are descending.)
+    + 3.0.3.0 -- Org Roam support added, as well as Go update.
     + 3.0.0.2 -- An overhaul is in progress to make
       everything use use-package.  You will no longer
       have to install dependencies by hand. Some
