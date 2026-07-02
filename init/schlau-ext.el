@@ -1,13 +1,27 @@
-;; TODO: Remove this once release is accepted.
-(add-to-list 'load-path "~/.config/emacs-config/schlau-compile/")
+;;; schlau-ext.el --- schlau-compile
+
+;;; Commentary:
+;; Pulls schlau-compile straight from its own git repo (no local
+;; clone or submodule needed) via `package-vc-install'. This sidesteps
+;; jj's lack of git-submodule support entirely, since the clone lives
+;; in `package-user-dir', outside this jj-tracked config tree.
+
+;;; Code:
+
+(unless (package-installed-p 'schlau-compile)
+  (package-vc-install
+   '(schlau-compile
+     :url "https://github.com/flajann2/schlau-compile.git"
+     :branch "master")))
 
 (use-package compile :ensure t)
+
 (require 'schlau-compile)
 
 (defconst cppclang "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
 ;;; (defconst cppninja "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && ninja -k3 -j8")
 ;;; (defconst cppmake  "if [ ! -d %G/build ]; then mkdir %G/build; fi ; cd %G/build && echo \"Entering directory \'%G/build\'\" && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DENABLE_CODE_ANALYSIS=ON .. && make")
-(defconst rustmake   "export RUST_BACKTRACE=full && ~/.cargo/bin/cargo build && ~/.cargo/bin/cargo test -- --nocapture")
+
 (defconst rubymake   "rake build")
 (defconst gomake     "cd %G && go mod tidy && go build && go test -v && go vet")
 (defconst elixirmake "cd %G && LC_ALL=en_GB.UTF-8 mix escript.build")
@@ -48,8 +62,25 @@
 (defconst elm-npm  "cd %G && npm run build && elm reactor")
 (defconst elm-npmi "cd %G && npm run build && npm run interactive")
 
+;; Rust compile
+(defconst rustmake   "export RUST_BACKTRACE=full && cargo build && cargo test -- --nocapture")
+
 ;; LaTeX to PDF
 (defconst latex-file "cd %G && mkdir -p output pdf && pdflatex -shell-escape -output-directory=./output %F && cp ./output/%n.pdf ./pdf")
+
+;; totally "evil" toml mode distinguisher between Rust and Python.
+;; my curse for being a polyglot!
+(defun toml-build-dispatch ()
+  "Set compile-command based on the current TOML manifest, then compile."
+  (let* ((fname (file-name-nondirectory (or buffer-file-name "")))
+         (cmd (cond
+               ((string= fname "Cargo.toml")     rustmake)
+               ((string= fname "pyproject.toml") pythonrun)
+               (t nil))))
+    (message "TOML for Rust or Python: %S -> %S" fname cmd)
+    (when cmd
+      (set (make-local-variable 'compile-command) (schlau-compile-string cmd))
+      (schlau-compile-compile-it))))
 
 (setq schlau-compile-alist
       (append
@@ -63,8 +94,9 @@
        (eval `'((c++-ts-mode . ,cppclang)))
 
        ;; compile Rust
-       (eval `'((rust-mode   . ,rustmake)))
-       (eval `'((toml-mode   . ,rustmake)))
+       (eval `'((rust-mode    . ,rustmake)))
+       (eval `'((rust-ts-mode . ,rustmake)))
+       ;; (eval `'((toml-mode    . ,rustmake))) ;; see name-based TOML dispatcher below
 
        ;; build Haskell -- now will convert to cabal
        (eval `'((haskell-mode          . ,hackage)))
@@ -72,7 +104,7 @@
 
        ;; build the yaml files the old way
        (eval `'((yaml-mode             . ,stackage)))
-       
+
        ;; compile rubygem
        (eval `'((ruby-mode       . ,rubymake)))
 
@@ -92,7 +124,7 @@
        (eval `'((python-mode     . ,pythonrun)))
 
        ;; Python toml mode
-       (eval `'((toml-ts-mode     . ,pythonrun)))
+       ;; (eval `'((toml-ts-mode     . ,pythonrun))) ; see named-based TOML dispatcher below
 
        ;; LaTeX to PDF generation (NO WORKIE)
        ;;; (eval `'((LaTeX-mode      . ,patentex)))
@@ -108,13 +140,18 @@
        ;; Elm (experimental -- elm is for the frontend. FIX)
        (eval `'((elm-mode        . ,elm-npmi)))
 
-       ;; LaTeX 
+       ;; LaTeX
        (eval `'((latex-mode      . ,latex-file)))
 
        ;; OCaml
        (eval `'((dune-mode        . ,ocaml-make)))
        (eval `'((tuareg-mode      . ,ocaml-make)))
        (eval `'((tuareg-opam-mode . ,ocaml-make)))
+
+       ;; Rust / Python TOML mode handling.
+       ;; TOML — dispatch by filename, not by which toml mode
+       (eval `'((toml-mode    . (toml-build-dispatch))))
+       (eval `'((toml-ts-mode . (toml-build-dispatch))))
        ))
 
 (global-set-key [f5]   'schlau-compile-compile)
@@ -125,3 +162,4 @@
 (setq compilation-scroll-output t)
 
 (provide 'schlau-ext)
+;;; schlau-ext.el ends here

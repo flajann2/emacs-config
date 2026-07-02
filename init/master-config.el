@@ -40,7 +40,7 @@
       (require-m 'org-roam-ext)  
       (require-m 'parens-ext)
       (require-m 'irc-ext)
-      ;; (require-m 'treesit-ext)
+      (require-m 'treesit-ext)
       (require-m 'haskell-ext)
       (require-m 'haskell-alignment)
       (require-m 'haskell-debugging)
@@ -77,6 +77,7 @@
       ;; (require-m 'fish-setup)
       ;; (require-m 'gptel-ext)
       ;; (require 'haskell-ihp)
+      (require-m 'rust-support)
       (require-m 'scala-ext)
       (require-m 'grok-ext)
       (require-m 'last-config) ;; must be the last.
