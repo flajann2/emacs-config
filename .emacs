@@ -49,43 +49,11 @@
  '(menu-bar-mode nil)
  '(org-agenda-files '("/development/dangerous-ideas/oma/nextwave.org"))
  '(package-hidden-regexps '("\\`let-alist"))
- '(package-selected-packages
-   '(ace-flyspell adwaita-dark-theme
-                  all-the-icons-nerd-fonts apheleia
-                  auto-complete-clang-async
-                  auto-save-buffers-enhanced bm
-                  bracketed-paste buffer-move cff
-                  clang-format cmake-mode company-ghci
-                  corfu dape doom-themes dune
-                  dune-format elixir-mode ellama
-                  elm-mode envrc exec-path-from-shell
-                  fish-mode flycheck-clang-analyzer
-                  flycheck-golangci-lint
-                  flycheck-haskell flycheck-ocaml
-                  flymake-haskell-multi flymake-hlint
-                  flymake-json flymake-python-pyflakes
-                  flymake-ruby flymake-ruff
-                  flymake-sass flymake-shell
-                  flymake-yaml focus go-complete
-                  go-direx go-dlv go-projectile golint
-                  gptel handlebars-mode
-                  highlight-symbol hl-anything
-                  idle-highlight-in-visible-buffers-mode
-                  iedit indent-guide lsp-haskell
-                  lsp-metals lsp-ui magit-lfs mic-paren
-                  multi-compile multiple-cursors
-                  mustache-mode ob-mermaid ocaml-eglot
-                  ocp-indent orderless
-                  org-attach-screenshot org-bullets
-                  org-roam org-superstar origami
-                  package-lint powerline
-                  purescript-mode pyvenv rust-mode
-                  sbt-mode smartparens solaire-mode
-                  sublimity toc-org treemacs-evil
-                  treesit-auto ts-comint tuareg
-                  typescript-mode utop vertico-posframe
-                  window-layout workgroups2 yafolding
-                  yasnippet))
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages
+   '((schlau-compile :url
+                     "https://github.com/flajann2/schlau-compile.git"
+                     :branch "master")))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)

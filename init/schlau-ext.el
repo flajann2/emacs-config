@@ -8,11 +8,16 @@
 
 ;;; Code:
 
+;; `vc-handled-backends' is nil in this config (startup-speed
+;; optimization), but `package-vc-install' needs the Git backend
+;; active to do its clone. Scope it locally so the global setting
+;; is untouched everywhere else.
 (unless (package-installed-p 'schlau-compile)
-  (package-vc-install
-   '(schlau-compile
-     :url "https://github.com/flajann2/schlau-compile.git"
-     :branch "master")))
+  (let ((vc-handled-backends '(Git)))
+    (package-vc-install
+     '(schlau-compile
+       :url "https://github.com/flajann2/schlau-compile.git"
+       :branch "master"))))
 
 (use-package compile :ensure t)
 
