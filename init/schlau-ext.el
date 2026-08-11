@@ -5,7 +5,7 @@
 ;; clone or submodule needed) via `package-vc-install'. This sidesteps
 ;; jj's lack of git-submodule support entirely, since the clone lives
 ;; in `package-user-dir', outside this jj-tracked config tree.
-
+;; TODO: replace this with a simple require once the Melpa issues are resolved.
 ;;; Code:
 
 ;; `vc-handled-backends' is nil in this config (startup-speed

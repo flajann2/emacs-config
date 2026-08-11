@@ -1,8 +1,14 @@
 ;; Rust support
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-(use-package flymake-rust :ensure t)
-(add-hook 'rust-mode-hook 'flymake-rust-load)
-(setq flymake-rust-use-cargo 1)
+;;
+;; this configuration needs more love, and as 
+;; I work more with Rust, I'll be giving it more love in the future.
+;; I am also open to pull requests.
+
+(use-package flycheck-rust
+  :ensure t
+  :after (flycheck rust-mode)
+  :hook (flycheck-mode . flycheck-rust-setup))
+
 (use-package multi-compile :ensure t)
 (setq multi-compile-alist '(
                             (rust-mode . (("rust-debug" . "cargo run")
@@ -10,6 +16,7 @@
                                           ("rust-test" . "cargo test")))
                             ))
 
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;; Issue #6887: Rather than inheriting the 'gnu compilation error
 ;; regexp (which is broken on a few edge cases), add our own 'rust
@@ -88,9 +95,6 @@ See `compilation-error-regexp-alist' for help on their format.")
   :custom
   (rust-mode-treesitter-derive t) ;; use tree-sitter if you're on Emacs 29+
   :hook (rust-mode . eglot-ensure))
-
-;; eglot already ships with Emacs 29+; if on 28 or earlier:
-;; (use-package eglot :ensure t)
 
 (with-eval-after-load 'eglot
   (define-key eglot-mode-map (kbd "C-c l r") #'eglot-rename)
