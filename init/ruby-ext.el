@@ -22,7 +22,4 @@
 (use-package bundler :ensure t)
 ;; (use-package helm-rb :ensure t)
 
-;; Ruby reload method buffer based on clicking the thumbwheel!
-(global-set-key [mouse-2] 'ecb-rebuild-methods-buffer)
-
 (provide 'ruby-ext)

@@ -26,8 +26,5 @@
          ((tags-todo "+NextWave"
                      ((org-agenda-overriding-header "Next Wave of Success")))))))
 
-;;; (add-hook 'org-agenda-mode-hook
-;;;           (lambda () (indent-guide-mode -1)))
-
 (provide 'org-agenda-ext)
 ;;; org-agenda-ext.el ends here
