@@ -8,12 +8,30 @@
              :config
                  (add-hook 'sh-set-shell-hook 'flymake-shell-load))
 
-;; indent guide
-(use-package indent-guide
-             :ensure t
-             :config
-                (indent-guide-global-mode)
-                (set-face-background 'indent-guide-face "dimgray"))
+;;; ;; ident-guide disabled due to conflict with org-agenda
+;;; ;; indent guide
+;;; (use-package indent-guide
+;;;              :ensure t
+;;;              :config
+;;;                 (indent-guide-global-mode)
+;;;                 (set-face-background 'indent-guide-face "dimgray"))
+
+;; ident-bars substitutes for ident-guide
+(use-package indent-bars
+  :vc (:url "https://github.com/jdtsmith/indent-bars" :rev :newest)
+  :hook ((prog-mode . indent-bars-mode)
+         ;; org-mode uses its own indentation semantics; opt in explicitly
+         ;; if you want guides there too, otherwise leave it off
+         )
+  :custom
+  (indent-bars-treesit-support t)
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  ;; only draw guides where tree-sitter confirms real nesting,
+  ;; avoids the kind of stale/ambiguous-position bugs indent-guide had
+  (indent-bars-prefer-character nil)
+  (indent-bars-color '(highlight :face-bg t :blend 0.15))
+  (indent-bars-highlight-current-depth '(:blend 0.4))
+  (indent-bars-display-on-blank-lines t))
 
 ;; Python mode
 (add-hook 'python-mode-hook
