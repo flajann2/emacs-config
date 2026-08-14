@@ -19,7 +19,6 @@
 ;; (require-m 'ruby-macros)
 ;; (require-m 'truncate-ext)
 ;; (require-m 'spelling-ext)
-;; (require-m 'annoying-patches)
 (require-m 'miscellaneous)
 (message "*** LOADING INIT Command-line CONFIGS COMPLETE ***")
 
