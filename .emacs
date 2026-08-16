@@ -51,7 +51,10 @@
  '(package-hidden-regexps '("\\`let-alist"))
  '(package-selected-packages nil)
  '(package-vc-selected-packages
-   '((schlau-compile :url
+   '((indent-bars :url
+                  "https://github.com/jdtsmith/indent-bars"
+                  :rev :newest)
+     (schlau-compile :url
                      "https://github.com/flajann2/schlau-compile.git"
                      :branch "master")))
  '(python-guess-indent nil)

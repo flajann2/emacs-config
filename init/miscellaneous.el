@@ -8,21 +8,15 @@
              :config
                  (add-hook 'sh-set-shell-hook 'flymake-shell-load))
 
-;;; ;; ident-guide disabled due to conflict with org-agenda
-;;; ;; indent guide
-;;; (use-package indent-guide
-;;;              :ensure t
-;;;              :config
-;;;                 (indent-guide-global-mode)
-;;;                 (set-face-background 'indent-guide-face "dimgray"))
+;; indent-bars substitutes for indent-guide
+(unless (package-installed-p 'indent-bars)
+  (let ((vc-handled-backends '(Git)))
+    (package-vc-install '(indent-bars :url "https://github.com/jdtsmith/indent-bars" :rev :newest))))
 
-;; ident-bars substitutes for ident-guide
 (use-package indent-bars
-  :vc (:url "https://github.com/jdtsmith/indent-bars" :rev :newest)
-  :hook ((prog-mode . indent-bars-mode)
-         ;; org-mode uses its own indentation semantics; opt in explicitly
-         ;; if you want guides there too, otherwise leave it off
-         )
+  :hook (prog-mode . indent-bars-mode)
+  ;; org-mode uses its own indentation semantics; opt in explicitly
+  ;; if you want guides there too, otherwise leave it off
   :custom
   (indent-bars-treesit-support t)
   (indent-bars-treesit-ignore-blank-lines-types '("module"))
