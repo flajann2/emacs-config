@@ -79,5 +79,62 @@
   (package-upgrade-all))
 
 (global-set-key (kbd "C-c u") 'update-all-packages)
+
+;;;###autoload
+(defun my/lsp-shutdown-all ()
+  "Shut down all LSP servers, regardless of client (eglot or lsp-mode)."
+  (interactive)
+  (cond
+   ((featurep 'eglot)
+    (when (fboundp 'eglot-shutdown-all)
+      (eglot-shutdown-all)
+      (message "eglot: all servers shut down")))
+   ((featurep 'lsp-mode)
+    (when (fboundp 'lsp-workspace-shutdown-all)
+      (lsp-workspace-shutdown-all)
+      (message "lsp-mode: all workspaces shut down")))
+   (t
+    (message "No LSP client (eglot or lsp-mode) detected as loaded")))
+  ;; Belt-and-suspenders: kill any lingering LSP-related processes
+  (dolist (proc (process-list))
+    (let ((name (process-name proc)))
+      (when (string-match-p "\\(lsp\\|eglot\\|hls\\|haskell-language-server\\)" name)
+        (delete-process proc)))))
+
+;; Optional keybinding
+(global-set-key (kbd "C-c k") #'my/lsp-shutdown-all)
+
+;;;; ;;;###autoload
+;;;; ;; WIP
+;;;; (defun my/lsp-restart-all-haskell ()
+;;;;   "Start or restart LSP in all open Haskell-mode buffers."
+;;;;   (interactive)
+;;;;   (dolist (buf (buffer-list))
+;;;;     (with-current-buffer buf
+;;;;       (when (derived-mode-p 'haskell-mode 'haskell-literate-mode)
+;;;;         (if (lsp-workspaces)
+;;;;             (lsp-workspace-restart (car (lsp-workspaces)))
+;;;;           (lsp))))))
+;;;; 
+;;;; ;;;###autoload
+;;;; ;; WIP
+;;;; (defun my/lsp-restart-all-haskell-p ()
+;;;;   "Restart LSP in all open Haskell-mode buffers."
+;;;;   (interactive)
+;;;;   (dolist (buf (buffer-list))
+;;;;     (with-current-buffer buf
+;;;;       (when (derived-mode-p 'haskell-mode 'haskell-literate-mode)
+;;;;         (when (bound-and-true-p lsp-mode)
+;;;;           (lsp-workspace-restart (lsp--read-workspace)))))))
+
+;;;###autoload
+(defun my/lsp-start ()
+  "Start LSP in the current buffer."
+  (interactive)
+  (lsp))
+
+(global-set-key (kbd "C-c j") #'my/lsp-start)
+
 (provide 'miscellaneous)
 ;;; miscellaneous.el ends here
+n
