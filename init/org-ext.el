@@ -17,15 +17,14 @@
     (setq org-superstar-leading-bullet ?\s)
     (setq org-indent-mode-turns-on-hiding-stars nil))
 
-
 (use-package org-tempo
-    :ensure t
-    :config
-    ;; Force italic face to actually use slant
-    (set-face-attribute 'italic nil :slant 'italic)
-    (set-face-attribute 'org-italic nil :slant 'italic)
-    )
-
+  :ensure nil
+  :after org
+  :config
+  (defface my-org-italic
+    '((t :slant italic))
+    "Italic face for Org emphasis.")
+  (setf (nth 1 (assoc "/" org-emphasis-alist)) '(my-org-italic)))
 (setq org-hide-emphasis-markers t)
 
 ;; Mermaid for block diagrams

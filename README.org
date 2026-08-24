@@ -11,7 +11,7 @@
 ** Author
    Fred Mitchell, Atomlogik
 ** Version
-   3.0.3.0
+   3.0.4.1
 ** Synopsis
    This is an extensive Emacs configuration system that
    has been in development for about 15 years. It
@@ -56,6 +56,7 @@ done
 	to xclip despite its configuration.
 *** Release notes
     (Versions are descending.)
+    + 3.0.4.1 -- Schlau-compile is now in MELPA and has been removed from this repo
     + 3.0.4.0 -- Added C-k and C-j to stop and (re)start the LSP, especially for Haskell
     + 3.0.3.0 -- Org Roam support added, as well as Go update.
     + 3.0.0.2 -- An overhaul is in progress to make
@@ -190,10 +191,6 @@ done
 
    [[file:schlau-compile/README.org::*schlau-compile][schlau-compile]]
 
-   Schlau Compile really should be in the Melpa, but there
-   were some issues with me putting it there since this is a
-   derivative work of Smart Compile. The functionality of
-   Schlau Compile has diverged greately and the namespace
-   changes that was needed to be made did not make it a good
-   canidate for merging. So for all intents and purposes,
-   this is a different project that stands alone.
+   Schlau Compile is now in MELPA and has been removed from
+   emacs-config.
+

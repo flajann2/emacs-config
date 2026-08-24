@@ -1,25 +1,7 @@
 ;;; schlau-ext.el --- schlau-compile
 
-;;; Commentary:
-;; Pulls schlau-compile straight from its own git repo (no local
-;; clone or submodule needed) via `package-vc-install'. This sidesteps
-;; jj's lack of git-submodule support entirely, since the clone lives
-;; in `package-user-dir', outside this jj-tracked config tree.
-;; TODO: replace this with a simple require once the Melpa issues are resolved.
-;;; Code:
-
-;; `vc-handled-backends' is nil in this config (startup-speed
-;; optimization), but `package-vc-install' needs the Git backend
-;; active to do its clone. Scope it locally so the global setting
-;; is untouched everywhere else.
-(unless (package-installed-p 'schlau-compile)
-  (let ((vc-handled-backends '(Git)))
-    (package-vc-install
-     '(schlau-compile
-       :url "https://github.com/flajann2/schlau-compile.git"
-       :branch "master"))))
-
 (use-package compile :ensure t)
+(use-package schlau-compile :ensure t)
 
 (require 'schlau-compile)
 

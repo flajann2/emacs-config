@@ -115,8 +115,4 @@
                  (bound-and-true-p vertico--input)
                  (eq (current-local-map) read-passwd-map)))))
 
-
-
-
-
 (provide 'haskell-ihp)

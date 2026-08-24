@@ -1,2 +1,4 @@
 roam-notes/
 org-agenda/
+**/*.elc
+

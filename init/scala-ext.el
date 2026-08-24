@@ -25,9 +25,6 @@
 (use-package lsp-ui
   :ensure t)
 
-(use-package company-lsp
-  :ensure t)
-
 (use-package lsp-metals
   :ensure t)
 

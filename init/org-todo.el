@@ -2,9 +2,7 @@
 (use-package org
     :ensure t
     :bind (("C-c a" . org-agenda)
-           ("C-c c" . org-capture)
-           :config
-           (require 'org-tempo)))
+           ("C-c c" . org-capture)))
 
 (global-set-key (kbd "C-<f12>") (lambda () (interactive) (org-agenda nil "n")))
 (global-set-key (kbd "C-;") 'ort/capture-todo)
