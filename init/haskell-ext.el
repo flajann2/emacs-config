@@ -102,10 +102,10 @@
   (if (null (x-list-fonts font))
 	    nil t))
 
-(require 'cl)
+(require 'cl-lib)
 (defun font-avail (fonts)
   "Find the available FONTS."
-  (remove-if-not 'font-existsp fonts))
+  (cl-remove-if-not 'font-existsp fonts))
 
 (defvar font-preferences
   '("PragmataPro"
