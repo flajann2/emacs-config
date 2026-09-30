@@ -59,14 +59,17 @@
 
 ;; LSP and HLS
 ;; TODO the following may duplicate functionality
-(use-package lsp-haskell :ensure t)
 
 (use-package lsp-mode
   :ensure t
   :hook ((haskell-mode . lsp)
-         (haskell-literate-mode-hook . lsp))
-  :config
-  (setq lsp-haskell-server-path "haskell-language-server-wrapper"))
+         (haskell-literate-mode . lsp)))
+
+(use-package lsp-haskell
+  :ensure t
+  :after lsp-mode
+  :custom
+  (lsp-haskell-server-path "haskell-language-server-wrapper"))
 
 ;;; (use-package lsp-ui
 ;;;   :ensure t

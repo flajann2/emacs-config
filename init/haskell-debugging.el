@@ -1,24 +1,17 @@
 ;;; haskell debugging - WIP
 
-(use-package haskell-mode
-  :ensure t
-  :config
-  (require 'haskell-interactive-mode)
-  (require 'haskell-process)
-  :hook
-  (haskell-mode . interactive-haskell-mode)
-  (haskell-mode . haskell-indentation-mode))
+;; haskell-mode setup (interactive-haskell-mode, indentation, requires)
+;; lives in haskell-ext.el — not duplicated here.
 
 (use-package lsp-mode
   :ensure t
-  :hook (haskell-mode . lsp)
-  :config
-  (setq lsp-prefer-flymake nil))
+  :custom
+  ;; replaces the obsolete `lsp-prefer-flymake nil'
+  (lsp-diagnostics-provider :flycheck))
 
 (use-package lsp-haskell
   :ensure t
-  :config
-  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
+  :after lsp-mode)
 
 (use-package lsp-ui
   :ensure t
@@ -34,57 +27,31 @@
 
 (use-package dape
   :ensure t
-  :preface
-  ;; By default dape shares the same keybinding prefix as `gud'
-  ;; If you do not want to use any prefix, set it to nil.
-  ;; (setq dape-key-prefix "\C-x\C-a")
-
   :hook
-  ;; Save breakpoints on quit
-  (kill-emacs . dape-breakpoint-save)
-
-  ;; Load breakpoints on startup
-  (after-init . dape-breakpoint-load)
-
+  ((kill-emacs . dape-breakpoint-save)   ; save breakpoints on quit
+   (after-init . dape-breakpoint-load))  ; load breakpoints on startup
   :config
-  (setq dape-configs
-        '(haskell-debug-adapter
-          :modes (haskell-mode)
-          :command "haskell-debug-adapter"
-          :command-args ("--verbose --lsp")
-          :type "haskell"
-          :request "launch"
-          :program "${file}"
-          :stopOnEntry :json-false
-          :logFile "/tmp/haskell-debug-adapter.log"
-          :cwd "${workspaceFolder}"))
-  
-  ;; Turn on global bindings for setting breakpoints with mouse
-  (dape-breakpoint-global-mode)
+  ;; Add to dape's built-in configs rather than replacing them.
+  ;; Needs `haskell-debug-adapter' and `ghci-dap' installed.
+  (add-to-list 'dape-configs
+               `(haskell-debug-adapter
+                 modes (haskell-mode haskell-ts-mode)
+                 command "haskell-debug-adapter"
+                 :type "ghc"
+                 :request "launch"
+                 :workspace dape-cwd
+                 :startup dape-buffer-default
+                 :stopOnEntry nil
+                 :ghciPrompt "H>>= "
+                 :ghciInitialPrompt "> "
+                 :ghciCmd "cabal repl -w ghci-dap --repl-no-load"
+                 :logFile "/tmp/haskell-debug-adapter.log"
+                 :logLevel "WARNING"))
 
-  ;; Info buffers to the right
-  (setq dape-buffer-window-arrangement 'right)
-
-  ;; Info buffers like gud (gdb-mi)
-  (setq dape-buffer-window-arrangement 'gud)
-  (setq dape-info-hide-mode-line nil)
-
-  ;; Pulse source line (performance hit)
-  ;; (add-hook 'dape-display-source-hook 'pulse-momentary-highlight-one-line)
-
-  ;; Showing inlay hints
-  (setq dape-inlay-hints t)
-
-  ;; Save buffers on startup, useful for interpreted languages
-  ;; (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
-
-  ;; Kill compile buffer on build success
-  ;; (add-hook 'dape-compile-hook 'kill-buffer)
-
-  ;; Projectile users
-  ;; (setq dape-cwd-function 'projectile-project-root)
-
-  ;; keybindings
+  (dape-breakpoint-global-mode)          ; mouse breakpoints in the fringe
+  (setq dape-buffer-window-arrangement 'gud
+        dape-info-hide-mode-line nil
+        dape-inlay-hints t)
   :bind
   (("M-<f1>"   . dape)
    ("M-<f2>"   . dape-quit)
@@ -105,11 +72,11 @@
    ("M-<f6>"   . dape-next)
    ("M-<f7>"   . dape-step-in)
    ("M-<S-f7>" . dape-step-out)
-   ("M-<f8>"   . dape-toggle-breakpoint)))
-  
+   ("M-<f8>"   . dape-breakpoint-toggle)))
 
 ;; Enable repeat mode for more ergonomic `dape' use
 (use-package repeat
+  :ensure nil
   :config
   (repeat-mode))
 
