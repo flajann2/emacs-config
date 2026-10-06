@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Enable AUCTeX
 (use-package tex
   :ensure auctex

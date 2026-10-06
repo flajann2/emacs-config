@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; Haskell alignment -- line up comma lists, etc.
 
 (use-package haskell-mode

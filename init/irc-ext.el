@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; IRC general settings
 (setq gnutls-min-prime-bits 1024)
 (rcirc-track-minor-mode 1)

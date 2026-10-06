@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; all good stuff Java.
 
 ;; lsp Java IDE

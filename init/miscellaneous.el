@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; LaTeX (alles)
 ;; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; files without an extention as c++ header
 ;; bacially, if they are located within a directory named 'include'
 

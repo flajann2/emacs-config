@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; for ace-mc
 ;; (print "multiple-cursors loading" #'external-debugging-output)
 

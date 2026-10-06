@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package gud :ensure t)
 
 ; GDB layout

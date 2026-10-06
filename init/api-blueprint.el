@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; API Blueprint
 (autoload 'apib-mode "apib-mode"
        "Major mode for editing API Blueprint files" t)

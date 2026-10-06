@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; To configure how dimmed buffers look like, customise
 ;; auto-dim-other-buffers-face.  This can be accomplished by:
 ;; 

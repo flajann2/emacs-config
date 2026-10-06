@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;;;;; all sweet things CMake goes here
 
 ;;;; CMake Project

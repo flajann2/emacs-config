@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; PaRTE Integration
 ;; (add-to-list 'load-path "/home/alveric/development/erlang_proj/stuff/parte_06_15/lib/erlang/lib/wrangler-1.1.01/elisp")
 (use-package parte :ensure t)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Jekyll OrgMode Publishing
 (use-package org
   :ensure t

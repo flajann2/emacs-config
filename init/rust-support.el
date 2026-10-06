@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Rust support
 ;;
 ;; this configuration needs more love, and as 

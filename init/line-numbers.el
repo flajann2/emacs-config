@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; line numbers for programming
 (global-display-line-numbers-mode nil)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

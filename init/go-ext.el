@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; go-ext.el --- Modern Go Development Setup (Emacs 29/30+)
 
 ;; 1. Treesit grammar management – pinned to a stable version

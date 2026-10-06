@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; total evil lurks here.
 
 ;; prelude to evil

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Configuration of ORG Mode
 (use-package org
   :ensure t

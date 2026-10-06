@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; elm integration
 (use-package elm-mode
   :ensure t

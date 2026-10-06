@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Only put in here what needs to be configured last.
 
 ;; Because we actually like syntax coloring

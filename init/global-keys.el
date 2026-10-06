@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Highlight Symbol
 (use-package highlight-symbol
   :ensure t

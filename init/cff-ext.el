@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;;; we are using this for all things cpp
 
 (use-package cmake-mode :ensure t)

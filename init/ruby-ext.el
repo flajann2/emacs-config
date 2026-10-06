@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Ruby Debugging
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 (defun my-run-remote-pry (&rest args)

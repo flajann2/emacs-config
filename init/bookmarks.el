@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Bookmarks
 (setq bm-restore-repository-on-load t)
 (use-package bm

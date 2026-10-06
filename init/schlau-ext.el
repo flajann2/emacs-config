@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; schlau-ext.el --- schlau-compile
 
 (use-package compile :ensure t)

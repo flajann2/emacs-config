@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Treemacs configuration
 
 (setq native-comp-deferred-compilation-deny-list '("treemacs"))

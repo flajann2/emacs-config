@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; parens!!!!
 (use-package mic-paren
   :ensure t

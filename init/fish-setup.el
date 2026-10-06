@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; setup for fish as the shell as well as fish-mode
 (use-package fish-mode
   :ensure t

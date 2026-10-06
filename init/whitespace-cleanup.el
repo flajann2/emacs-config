@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Whitespace cleanup
 ;; Since we auto-save, we no longer want this hook
 ;; (add-hook 'before-save-hook 'whitespace-cleanup)

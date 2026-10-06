@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Org edit LaTeX
 (use-package org-edit-latex
   :ensure t

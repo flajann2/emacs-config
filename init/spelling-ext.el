@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; TODO: this config is deprecated and may be deleted soon.
 ;; TODO: use spelling-checker.el instead
 

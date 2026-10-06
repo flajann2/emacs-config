@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Window Layout (currently configured for a large 4K display)
 ;; TODO: Do a "macro" to generate layout for
 ;; TODO: different screen sizes.

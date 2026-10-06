@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; ruby macros for pry
 
 (defun ruby-pry-debugging ()

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; ocaml
 
 (use-package ocp-indent

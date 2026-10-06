@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 
 (use-package org-side-tree
   :ensure t

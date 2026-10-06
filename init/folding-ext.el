@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Folding
 ;; TODO clean this up
 (use-package yafolding :ensure t)

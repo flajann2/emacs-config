@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package ellama ;; FIXME 
   :ensure t
   :config

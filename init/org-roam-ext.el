@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; org-roam-ext --- Configuration
 
 (use-package org-roam

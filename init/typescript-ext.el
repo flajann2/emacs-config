@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Whaaaaa Typescript? Tell me it ain't so
 
 (use-package typescript-mode

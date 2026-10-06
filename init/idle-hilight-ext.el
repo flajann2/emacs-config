@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; idle highlight
 (use-package idle-highlight-in-visible-buffers-mode :ensure t)
 

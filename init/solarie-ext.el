@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package solaire-mode
   :ensure t
   :hook (after-change-major-mode . turn-on-solaire-mode)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; lua settings
 ;; See https://github.com/immerrr/lua-mode for further documentation
 

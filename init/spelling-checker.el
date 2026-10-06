@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Spelling Checker (see https://github.com/cute-jumper/ace-flyspell)
 (use-package flyspell
   :ensure nil

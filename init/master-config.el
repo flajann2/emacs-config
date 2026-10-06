@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Emacs Master Configuration
 
 (defun require-m (config)

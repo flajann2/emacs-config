@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Fish shell setup
 
 ;; Use fish as the default shell

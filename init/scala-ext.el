@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; What? Scala too?
 
 (use-package scala-mode

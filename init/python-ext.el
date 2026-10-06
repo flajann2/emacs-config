@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Python integration
 
 (unless package-archive-contents (package-refresh-contents))

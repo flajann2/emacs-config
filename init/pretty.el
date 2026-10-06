@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; we do some awesomeness here with symbol substitution!
 (global-prettify-symbols-mode +1)
 (defun configure-prettify-symbols-alist ()

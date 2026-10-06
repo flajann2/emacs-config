@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Autosave
 (use-package auto-save-buffers-enhanced
              :ensure t

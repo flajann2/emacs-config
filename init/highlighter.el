@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; hl-anything
 (use-package hl-anything
   :ensure t

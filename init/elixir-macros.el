@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; elixir macros for pry
 
 (use-package elixir-mode

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; Change color on focus
 ;; (use-package focus-color :ensure t)
 

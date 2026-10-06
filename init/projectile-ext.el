@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; org projectile
 
 ;; FIXME -- this is buggy on laptop!

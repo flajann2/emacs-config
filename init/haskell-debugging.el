@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; haskell debugging - WIP
 
 ;; haskell-mode setup (interactive-haskell-mode, indentation, requires)

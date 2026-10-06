@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; cppcheck setup
 
 (use-package flymake-cppcheck ;; TODO: flymake-cppcheck no longer available

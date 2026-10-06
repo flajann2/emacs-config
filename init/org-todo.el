@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;;; Org TODOs Keybindings
 (use-package org
     :ensure t

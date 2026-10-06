@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; generate table of contents
 (use-package toc-org
   :ensure t

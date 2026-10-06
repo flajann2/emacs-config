@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; tide -- support for TypeScript development
 
 (defun setup-tide-mode ()

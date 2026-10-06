@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Haskell
 ;; TODO: Clean this beast up. Hooks, remove old comments, etc. 
 

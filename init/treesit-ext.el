@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; treesit
 
 (use-package treesit-auto

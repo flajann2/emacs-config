@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Clipboard
 ;; TODO: WIP
 

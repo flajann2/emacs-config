@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; colorize the complitation buffer
 
 ;; Stolen from (http://endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html)

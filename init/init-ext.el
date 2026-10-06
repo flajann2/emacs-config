@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; === PACKAGE SETUP - MUST BE FIRST ===
 ;;; ;; BEGIN native compilation -- Enable native compilation for all Elisp code
 ;;; (when (and (fboundp 'native-comp-available-p)
