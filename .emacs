@@ -79,7 +79,7 @@
                   ob-mermaid ocaml-eglot ocp-indent
                   orderless org-attach-screenshot
                   org-bullets org-roam org-superstar
-                  origami package-lint powerline
+                  origami ox-gfm package-lint powerline
                   purescript-mode pyvenv rust-mode
                   sbt-mode schlau-compile smartparens
                   solaire-mode sublimity toc-org

@@ -37,4 +37,10 @@
 ;; Optional: tell Emacs where mmdc is (usually not needed)
 ;; (setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
 
+;; ox-gfm needed for generation of md
+;; orgmode outage in Github
+(use-package ox-gfm
+  :ensure t
+  :after org)
+
 (provide 'org-ext)
