@@ -77,9 +77,10 @@
        (eval `'((go-ts-mode . ,gomake)))
 
        ;; compile C++
-       (eval `'((cmake-mode  . ,cppclang)))
-       (eval `'((c++-mode    . ,cppclang)))
-       (eval `'((c++-ts-mode . ,cppclang)))
+       (eval `'((cmake-mode    . ,cppclang)))
+       (eval `'((cmake-ts-mode . ,cppclang)))
+       (eval `'((c++-mode      . ,cppclang)))
+       (eval `'((c++-ts-mode   . ,cppclang)))
 
        ;; compile Rust
        (eval `'((rust-mode    . ,rustmake)))
